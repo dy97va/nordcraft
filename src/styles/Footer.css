@@ -1,0 +1,36 @@
+*{
+    text-decoration: none;
+    color: black;
+}
+
+.footerBox {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    /* border-radius: 25px;
+    box-shadow: 0 0 5px #ccc; */
+
+}
+
+.contactInfoBox{
+    border-radius: 25px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.navigationBox{
+    border-radius: 25px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 0 5px #ccc;
+    margin-left: 20px;
+}
+
+.aboutUsBox{
+    border-radius: 25px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 0 5px #ccc;
+    margin-left: 20px;
+}

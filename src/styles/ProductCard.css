@@ -1,0 +1,32 @@
+.productCard {
+    width: 350px;
+    height:fit-content;
+    padding: 10px;
+    box-shadow: 0 0 5px #ccc;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.productCard .productImg {
+    width: 100%;
+    border-radius: 25px;
+}
+
+.productCard .productImg img {
+    width: 100%;
+    border-radius: 25px;
+}
+
+.productTitle{
+    font-weight: 600;
+}
+
+.productCardButton{
+    padding: 10px;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px #ccc;
+    justify-content: center;
+}
