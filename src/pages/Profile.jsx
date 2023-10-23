@@ -9,9 +9,10 @@ import {mail} from 'react-icons-kit/ikons/mail'
 import {phone} from 'react-icons-kit/feather/phone'
 import {user} from 'react-icons-kit/feather/user'
 import { Link } from "react-router-dom"
+import emptyUser  from '../assets/emptyUSer.png'
+import '../styles/Profile.css'
 
 const usericon = user;
-
 
 export const Profile = (props) => {
 
@@ -36,7 +37,7 @@ export const Profile = (props) => {
             </>}
             {user&&<>
             <div className="profileInfoBox">
-                <div className="profilePicture"><img src={auth.currentUser.ProfilePic} alt={usericon} /></div>
+                <div className="profilePicture"><img src={emptyUser} alt={auth.currentUser.ProfilePic}/></div>
                 <div className="userName"><Icon icon={ usericon }></Icon>{ user }</div>
                 <div className="email"><Icon icon={ mail }></Icon>{ emailToDisplay }</div>
                 <div className="phoneNumber"><Icon icon={ phone }></Icon>+358 46 5798609</div>

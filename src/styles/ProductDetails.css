@@ -3,22 +3,44 @@
     display: flex;
 }
 
-.productImage {
+.productDetailsBox .productImage {
     width: 50%;
 }
 
-.productImage img {
+.productDetailsBox .productImage img {
     width: 100%;
     border-radius: 25px;
 }
 
-.productInfo {
+.productDetailsBox .productInfo {
     width: 50%;
-    padding: 30px;
     margin-left: 20px;
-    border-radius: 25px;
-    box-shadow: 0 0 5px #ccc;
     display: flex;
     flex-direction: column;
-
 }
+
+.productDetailsBox .productTitle {
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #ccc;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.productDetailsBox .productPrice{
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #ccc;
+    font-size: 40px;
+}
+
+.productDetailsBox .productDescription {
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #ccc;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
