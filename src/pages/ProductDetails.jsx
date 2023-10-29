@@ -9,6 +9,12 @@ export const ProductDetails = (props) => {
   const { individualProduct } = props.location.state || {};
   const uid = GetUserUid();
 
+  const productImages = []
+    for(let i in individualProduct.images) {
+      productImages.push(individualProduct.images[i]);
+    }
+
+    console.log(individualProduct.images);
   const handleAddToCart = () => {
     console.log("addded to cart");
     addToCart(uid, individualProduct);
@@ -22,7 +28,9 @@ export const ProductDetails = (props) => {
       ) : (
         <div className="productDetailsBox">
           <div className="productImage">
-            <img src={individualProduct.url} alt="product-img"/>
+            {individualProduct.images.map((image, index) => (
+              <img key={index} src={image} alt={`Product Image ${index}`} />
+            ))}
           </div>
           <div className="productInfo">
           <div className="productTitle">{individualProduct.title}</div>
@@ -32,6 +40,7 @@ export const ProductDetails = (props) => {
           </div>
         </div>
       )}
+
       <Footer />
     </div>
   );

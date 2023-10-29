@@ -1,75 +1,98 @@
-import React, { useState } from 'react';
-import { fs, storage } from '../config/Config';
+import React from "react";
+import { useState } from "react";
+import { storage, fs } from '../config/Config'
+
+
 
 export const AddProducts = () => {
+
     const [product, setProduct] = useState({
         title: '',
         description: '',
         price: '',
-        image: null,
+        images: [],
     });
-    const [imageError, setImageError] = useState('');
-    const [successMsg, setSuccessMsg] = useState('');
+
+    const[imageError, setImageError] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const [uploadError, setUploadError] = useState('');
 
-    const types = ['image/jpg', 'image/jpeg', 'image/png', 'image/PNG'];
+    const imgTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/PNG'];
+    
 
     const handleProductImg = (e) => {
-        const selectedFile = e.target.files[0];
-
-        if (selectedFile) {
-            if (selectedFile && types.includes(selectedFile.type)) {
-                setProduct({ ...product, image: selectedFile });
-                setImageError('');
-            } else {
-                setProduct({ ...product, image: null });
-                setImageError('Please select a valid image file type (png or jpg)');
+        const selectedFiles = e.target.files;
+    
+        if (selectedFiles.length > 0) {
+            const newImages = [...product.images];
+            const newImageErrors = [...imageError];
+    
+            for (const selectedFile of selectedFiles) {
+                if (selectedFile && imgTypes.includes(selectedFile.type)) {
+                    newImages.push(selectedFile);
+                } else {
+                    newImageErrors.push(`Invalid file type: ${selectedFile.name}`);
+                }
             }
+    
+            setProduct({ ...product, images: newImages });
+            setImageError(newImageErrors);
         } else {
-            console.log('Please select your file');
+            setProduct({ ...product, images: [] });
+            setImageError(['Please select an image']);
         }
     };
+    
+
 
     const handleAddProducts = (e) => {
         e.preventDefault();
-        const { title, description, price, image } = product;
+        const {title, description, price, images} = product;
+        
+        const uploadPromises = images.map((image) => {
+            return new Promise((resolve, reject)=> {
+                const uploadTask = storage.ref(`product-images/${image.name}`).put(image);
+                uploadTask.on(
+                    'state changed',
+                    (snapshot) => {
 
-        const uploadTask = storage.ref(`product-images/${image.name}`).put(image);
-        uploadTask.on(
-            'state_changed',
-            (snapshot) => {
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log(progress);
-            },
-            (error) => setUploadError(error.message),
-            () => {
-                storage
-                    .ref('product-images')
-                    .child(image.name)
-                    .getDownloadURL()
-                    .then((url) => {
-                        fs.collection('Products')
-                            .add({
-                                title,
-                                description,
-                                price: Number(price),
-                                url,
-                            })
-                            .then(() => {
-                                setSuccessMsg('Product added successfully');
-                                setProduct({ title: '', description: '', price: '', image: null });
-                                document.getElementById('file').value = '';
-                                setImageError('');
-                                setUploadError('');
-                                setTimeout(() => {
-                                    setSuccessMsg('');
-                                }, 1000);
-                            })
-                            .catch((error) => setUploadError(error.message));
-                    });
-            }
-        );
+                    },
+                    (error)=> reject(error),
+                    () => {
+                        storage
+                        .ref('product-images')
+                        .child(image.name)
+                        .getDownloadURL()
+                        .then((url) => resolve(url))
+                        .catch((error) => reject(error));
+                    }
+                );
+            });
+        });
+        Promise.all(uploadPromises).then((imageUrls) => {
+            return fs.collection('Products').add({
+                title,
+                description,
+                price: Number(price),
+                images: imageUrls,
+            });
+        }).then(() => {
+            setSuccessMessage('Product added successfuly');
+            setProduct({
+                title: '',
+                description: '',
+                price: '',
+                images:[]
+            });
+            document.getElementById('file').value = '';
+            setImageError([]);
+            setUploadError('');
+            setTimeout(()=>{
+                setSuccessMessage('');
+            }, 1000);
+        }) .catch((error) => setUploadError(error.message));
     };
+
 
     return (
         <div className="container">
@@ -77,9 +100,7 @@ export const AddProducts = () => {
             <br />
             <h1>Add Products</h1>
             <hr />
-            {successMsg && (
-                <div className="success-msg">{successMsg}</div>
-            )}
+            {successMessage && <div className="success-msg">{successMessage}</div>}
             <form autoComplete="off" className="form-group" onSubmit={handleAddProducts}>
                 <label>Product Title</label>
                 <input
@@ -108,17 +129,22 @@ export const AddProducts = () => {
                     value={product.price}
                 />
                 <br />
-                <label>Upload Product Image</label>
+                <label>Upload Product Images</label>
                 <input
                     type="file"
                     id="file"
                     className="form-control"
+                    multiple
                     required
                     onChange={handleProductImg}
                 />
 
-                {imageError && (
-                    <div className="error-msg">{imageError}</div>
+                {imageError.length > 0 && (
+                    <div className="error-msg">
+                        {imageError.map((error, index) => (
+                            <p key={index}>{error}</p>
+                        ))}
+                    </div>
                 )}
                 <br />
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -127,9 +153,7 @@ export const AddProducts = () => {
                     </button>
                 </div>
             </form>
-            {uploadError && (
-                <div className="error-msg">{uploadError}</div>
-            )}
+            {uploadError && <div className="error-msg">{uploadError}</div>}
         </div>
     );
-};
+}

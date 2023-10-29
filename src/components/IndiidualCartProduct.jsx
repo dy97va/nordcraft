@@ -30,7 +30,7 @@ export const IndividualCartProduct = ({cartProduct, cartProductIncrease, cartPro
     return (
         <div className='productCard'>
             <div className='productImg'>
-                <img src={cartProduct.url} alt="product-img"/>
+                <img src={cartProduct.images[0]} alt="product-img"/>
             </div>
             <div className='productTitle'>{cartProduct.title}</div>
             <div className='productPrice'>$ {cartProduct.price}</div>
