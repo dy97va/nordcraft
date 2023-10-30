@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState}from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import '../styles/ProductDetails.css'
@@ -8,16 +8,18 @@ import { addToCart } from '../services/ProductServices'
 export const ProductDetails = (props) => {
   const { individualProduct } = props.location.state || {};
   const uid = GetUserUid();
+  const [addToCartButton, setAddToCartButton] = useState('Add To Cart');
+
 
   const productImages = []
     for(let i in individualProduct.images) {
       productImages.push(individualProduct.images[i]);
     }
 
-    console.log(individualProduct.images);
   const handleAddToCart = () => {
     console.log("addded to cart");
     addToCart(uid, individualProduct);
+    setAddToCartButton('Added To Cart')
   }
 
   return (
@@ -36,7 +38,7 @@ export const ProductDetails = (props) => {
           <div className="productTitle">{individualProduct.title}</div>
           <div className="productPrice"> Price: € {individualProduct.price}</div>
           <div className="productDescription">{individualProduct.description}</div>
-          <div className='productCardButton' onClick={handleAddToCart}>ADD TO CART</div>
+          <div className='productCardButton' onClick={handleAddToCart}>{addToCartButton}</div>
           </div>
         </div>
       )}
