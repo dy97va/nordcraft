@@ -33,7 +33,7 @@ export const IndividualCartProduct = ({cartProduct, cartProductIncrease, cartPro
                 <img src={cartProduct.images[0]} alt="product-img"/>
             </div>
             <div className='productTitle'>{cartProduct.title}</div>
-            <div className='productPrice'>$ {cartProduct.price}</div>
+            <div className='productPrice'>€ {cartProduct.price}</div>
             <span>Quantity</span>
             <div className='quantityBox'>
                 <div className='buttonMinus' onClick={handleCartProductDecrease} >
@@ -44,7 +44,7 @@ export const IndividualCartProduct = ({cartProduct, cartProductIncrease, cartPro
                     <Icon icon={plus} size={20}/>
                 </div>
             </div>
-            <div className='producText'>$ {cartProduct.TotalProductPrice}</div>
+            <div className='producText'>€ {cartProduct.TotalProductPrice}</div>
             <div className='productButton' onClick={handleDeleteProduct}>DELETE</div>            
         </div>
     )

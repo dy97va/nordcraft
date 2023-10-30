@@ -84,7 +84,6 @@ export const Cart = () => {
 
     const history = useHistory();
     const handleToken = async(token)=>{
-        //  console.log(token);
         const cart = {name: 'All Products', totalPrice}
         const response = await axios.post('http://localhost:8080/checkout',{
             token,
@@ -135,7 +134,7 @@ export const Cart = () => {
                         Total No of Products: <span>{totalQty}</span>
                         </div>
                         <div>
-                        Total Price to Pay: <span>$ {totalPrice}</span>
+                        Total Price to Pay: <span>€ {totalPrice}</span>
                         </div>
                         <br/>
                         <StripeCheckout

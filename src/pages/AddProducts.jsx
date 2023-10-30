@@ -13,7 +13,7 @@ export const AddProducts = () => {
         images: [],
     });
 
-    const[imageError, setImageError] = useState('');
+    const [imageError, setImageError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [uploadError, setUploadError] = useState('');
 
