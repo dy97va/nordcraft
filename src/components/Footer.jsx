@@ -32,9 +32,9 @@ export const Footer = () => {
             </div>
             <div className="aboutUsBox">
                 <div>About US</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus placeat ut aut voluptatem ea!&nbsp;
-                    Recusandae perferendis ullam pariatur amet, quis quo aperiam ipsa repellat &nbsp;
-                    adipisci molestiae libero voluptas sapiente mollitia.</p>
+                <p>  Nord Craft: Your gateway to Finnish craftsmanship.
+                     Discover exquisite handcrafted treasures that blend tradition with innovation,
+                     in knitwear and leather goods. Elevate your lifestyle with timeless Nordic designs</p>
             </div>
         </div>
         <hr />

@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 import {toast} from 'react-toastify';
 import '../styles/Cart.css'
 import { Footer } from '../components/Footer'
-// import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure();
 
