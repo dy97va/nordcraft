@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { storage, fs } from '../config/Config'
+import { storage, fs } from '../config/Config';
 
 
 
@@ -19,7 +19,6 @@ export const AddProducts = () => {
 
     const imgTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/PNG'];
     
-
     const handleProductImg = (e) => {
         const selectedFiles = e.target.files;
     
@@ -42,9 +41,13 @@ export const AddProducts = () => {
             setImageError(['Please select an image']);
         }
     };
-    
 
+    const removeImage = (index) => {
+        const filteredImages = product.images.filter((image, i) => i !== index);
+        setProduct({ ...product, images: filteredImages });
+      };
 
+      
     const handleAddProducts = (e) => {
         e.preventDefault();
         const {title, description, price, images} = product;
@@ -112,7 +115,7 @@ export const AddProducts = () => {
                 />
                 <br />
                 <label>Product Description</label>
-                <input
+                <textarea
                     type="text"
                     className="form-control"
                     required
@@ -135,10 +138,19 @@ export const AddProducts = () => {
                     id="file"
                     className="form-control"
                     multiple
+                    accept="image/*"
                     required
                     onChange={handleProductImg}
                 />
-
+                <br />
+                {product.images && product.images.map((image, index) =>(
+                    //<div key={index}>
+                    <div key={index}>
+                    <img src={URL.createObjectURL(image)} alt="image preview" />
+                    <button type="button" onClick={() => removeImage(index)}>Delete</button>
+                    </div>
+                ))}
+                
                 {imageError.length > 0 && (
                     <div className="error-msg">
                         {imageError.map((error, index) => (
@@ -148,7 +160,7 @@ export const AddProducts = () => {
                 )}
                 <br />
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button type="submit" className="btn btn-success btn-md">
+                    <button type="submit" className="submitButton">
                         SUBMIT
                     </button>
                 </div>

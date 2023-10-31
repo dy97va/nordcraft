@@ -10,7 +10,7 @@ export const IndividualProduct = ({individualProduct, addToCart}) => {
         addToCart(individualProduct);
         setAddToCartButton('Added To Cart');
     }
-
+    
     
     
     return (

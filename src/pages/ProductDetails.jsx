@@ -10,12 +10,6 @@ export const ProductDetails = (props) => {
   const uid = GetUserUid();
   const [addToCartButton, setAddToCartButton] = useState('Add To Cart');
 
-
-  const productImages = []
-    for(let i in individualProduct.images) {
-      productImages.push(individualProduct.images[i]);
-    }
-
   const handleAddToCart = () => {
     console.log("addded to cart");
     addToCart(uid, individualProduct);

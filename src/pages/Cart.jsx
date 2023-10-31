@@ -13,7 +13,7 @@ toast.configure();
 
 export const Cart = () => {
     
-    const [cartProducts, setCartProducts] = useState([]); 
+    const [cartProducts, setCartProducts] = useState([]);
 
     useEffect(()=>{
         auth.onAuthStateChanged(user=>{
