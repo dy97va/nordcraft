@@ -8,13 +8,14 @@ import { useHistory } from 'react-router-dom';
 import {toast} from 'react-toastify';
 import '../styles/Cart.css'
 import { Footer } from '../components/Footer'
+import 'react-toastify/dist/ReactToastify.css'
 
 toast.configure();
 
 export const Cart = () => {
     
     const [cartProducts, setCartProducts] = useState([]);
-
+    
     useEffect(()=>{
         auth.onAuthStateChanged(user=>{
             if(user){
@@ -94,11 +95,11 @@ export const Cart = () => {
         if(status==='success'){
             history.push('/');
             toast.success('Your order has been placed successfully', {
-                position: 'top-right',
+                position: toast.POSITION.TOP_RIGHT,
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: false,
+                pauseOnHover: true,
                 draggable: false,
                 progress: undefined,
               });
