@@ -12,6 +12,10 @@
 
 }
 
+.footer-title {
+    font-weight: bold;
+}
+
 .contactInfoBox{
     border-radius: 25px;
     padding: 20px;

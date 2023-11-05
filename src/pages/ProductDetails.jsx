@@ -29,18 +29,18 @@ export const ProductDetails = (props) => {
         <div>Loading...</div>
       ) : (
         <div className="productDetailsBox">
-          <div className="productImage">
-            {individualProduct.images.map((image, index) => (
-              <img key={index} src={image} alt={`Product Image ${index}`} />
-            ))}
+              <div className="productImage">
+              {individualProduct.images.map((image, index) => (
+                <img key={index} src={image} alt={`Product Image ${index}`} />
+              ))}
+            </div>
+            <div className="productInfo">
+              <span className="productTitle view-cards">{individualProduct.title}</span>
+              <div className="productPrice card-price view-cards"> Price: € {individualProduct.price}</div>
+              <div className="productDescription view-cards">{individualProduct.description}</div>
+              <div className='productCardButton view-cards-btn' onClick={handleAddToCart}>{addToCartButton}</div>
+            </div>
           </div>
-          <div className="productInfo">
-          <div className="productTitle">{individualProduct.title}</div>
-          <div className="productPrice"> Price: € {individualProduct.price}</div>
-          <div className="productDescription">{individualProduct.description}</div>
-          <div className='productCardButton' onClick={handleAddToCart}>{addToCartButton}</div>
-          </div>
-        </div>
       )}
 
       <Footer />

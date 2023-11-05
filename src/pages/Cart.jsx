@@ -128,15 +128,15 @@ export const Cart = () => {
                     </div>
                     <div className='summary-box'>
                         <h5>Cart Summary</h5>
-                        <br></br>
+                        <br className='summary-line'></br>
                         <div>
                         Total No of Products: <span>{totalQty}</span>
                         </div>
                         <div>
-                        Total Price to Pay: <span>€ {totalPrice}</span>
+                        Total Price to Pay: <span  className='summary-box-price'>€ {totalPrice}</span>
                         </div>
                         <br/>
-                        <StripeCheckout
+                        <StripeCheckout className="pay-btn"
                         stripeKey='pk_test_51NzwJ2BnKw4OH10vID5msODJfsZqr3pknRjxxjskmGreSeifsmOx369DZmj1yYrYNAWz11HH3wKJAg3J5yKgEpxh00WE4EOkc0'
                         token={handleToken}
                         billingAddress
@@ -150,7 +150,7 @@ export const Cart = () => {
             )}
 
             {cartProducts.length < 1 && (
-                <div className='container-fluid'>No Products In Cart Yet</div>
+                <div className='container-fluid empty-cart'>No Products In Cart Yet</div>
             )}
             <Footer/>
         </>
