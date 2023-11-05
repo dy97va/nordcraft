@@ -12,148 +12,118 @@ import 'react-toastify/dist/ReactToastify.css'
 
 toast.configure();
 
+const getTotalQty = (cartProducts) => {
+  return cartProducts.reduce((total, cartProduct) => total + cartProduct.qty, 0);
+}
+
+const getTotalPrice = (cartProducts) => {
+  return cartProducts.reduce((total, cartProduct) => total + cartProduct.TotalProductPrice, 0);
+}
+
+const updateCartProduct = async (user, cartProduct) => {
+  const Product = { ...cartProduct };
+  Product.qty = Product.qty - 1;
+  Product.TotalProductPrice = Product.qty * Product.price;
+
+  if (user) {
+    await fs.collection('Cart ' + user.uid).doc(cartProduct.ID).update(Product);
+  }
+}
+
 export const Cart = () => {
-    
-    const [cartProducts, setCartProducts] = useState([]);
-    
-    useEffect(()=>{
-        auth.onAuthStateChanged(user=>{
-            if(user){
-                fs.collection('Cart ' + user.uid).onSnapshot(snapshot => {
-                    const newCartProduct = snapshot.docs.map((doc) => ({
-                        ID: doc.id,
-                        ...doc.data(),
-                    }));
-                    setCartProducts(newCartProduct);                    
-                })
-            } else {
-                console.log('user is not signed in to retrieve cart');
-            }
-        })
-    },[])
+  const [cartProducts, setCartProducts] = useState([]);
 
-    const qty = cartProducts.map(cartProduct => {
-        return cartProduct.qty;
-    })
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const cartRef = fs.collection('Cart ' + user.uid);
+        const unsubscribeCart = cartRef.onSnapshot((snapshot) => {
+          const newCartProducts = snapshot.docs.map((doc) => ({
+            ID: doc.id,
+            ...doc.data(),
+          }));
+          setCartProducts(newCartProducts);
+        });
 
-    const reducerOfQty = (accumulator, currentValue)=>accumulator+currentValue;
+        return () => {
+          unsubscribeCart();
+        };
+      }
+    });
+  }, []);
 
-    const totalQty = qty.reduce(reducerOfQty,0);
+  const history = useHistory();
 
-    const price = cartProducts.map((cartProduct)=>{
-        return cartProduct.TotalProductPrice;
-    })
+  const handleToken = async (token) => {
+    const cart = { name: 'All Products', totalPrice: getTotalPrice(cartProducts) };
+    const response = await axios.post('http://localhost:8080/checkout', {
+      token,
+      cart,
+    });
+    const { status } = response.data;
 
-    const reducerOfPrice = (accumulator,currentValue)=>accumulator+currentValue;
+    if (status === 'success') {
+      history.push('/');
+      toast.success('Your order has been placed successfully', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+      });
 
-    const totalPrice = price.reduce(reducerOfPrice,0);
+      const uid = auth.currentUser.uid;
+      const carts = await fs.collection('Cart ' + uid).get();
 
-    let Product;
-
-    const cartProductIncrease = (cartProduct) => {
-        Product = cartProduct;
-        Product.qty = Product.qty + 1;
-        Product.TotalProductPrice = Product.qty * Product.price;
-
-        auth.onAuthStateChanged(user => {
-            if(user) {
-                fs.collection("Cart " + user.uid).doc(cartProduct.ID).update(Product).then(() => {
-                    console.log("increment successful");
-                })
-            } else {
-                console.log("You are not logged in")
-            }
-        })
+      for (const snap of carts.docs) {
+        fs.collection('Cart ' + uid).doc(snap.id).delete();
+      }
+    } else {
+      alert('Something went wrong at checkout');
     }
+  }
 
-    const cartProductDecrease = (cartProduct) => {
-        Product = cartProduct;
-        Product.qty = Product.qty - 1;
-        Product.TotalProductPrice = Product.qty * Product.price;
+  return (
+    <>
+      <Navbar />
+      {cartProducts.length > 0 && (
+        <div className='container-fluid'>
+          <h1 className='text-center'>Cart</h1>
+          <div className='products-box'>
+            <CartProductList
+              cartProducts={cartProducts}
+              cartProductIncrease={updateCartProduct}
+              cartProductDecrease={updateCartProduct}
+            />
+          </div>
+          <div className='summary-box'>
+            <h5>Cart Summary</h5>
+            <br />
+            <div>
+              Total No of Products: <span>{getTotalQty(cartProducts)}</span>
+            </div>
+            <div>
+              Total Price to Pay: <span>€ {getTotalPrice(cartProducts)}</span>
+            </div>
+            <br />
+            <StripeCheckout
+              stripeKey='pk_test_51NzwJ2BnKw4OH10vID5msODJfsZqr3pknRjxxjskmGreSeifsmOx369DZmj1yYrYNAWz11HH3wKJAg3J5yKgEpxh00WE4EOkc0'
+              token={handleToken}
+              billingAddress
+              shippingAddress
+              name='All Products'
+              amount={getTotalPrice(cartProducts) * 100}
+            ></StripeCheckout>
+          </div>
+        </div>
+      )}
 
-        auth.onAuthStateChanged(user => {
-            if(user) {
-                fs.collection("Cart " + user.uid).doc(cartProduct.ID).update(Product).then(() => {
-                    console.log("increment successful");
-                })
-            } else {
-                console.log("You are not logged in");
-            }
-        })
-    }
-
-    const history = useHistory();
-    const handleToken = async(token)=>{
-        const cart = {name: 'All Products', totalPrice}
-        const response = await axios.post('http://localhost:8080/checkout',{
-            token,
-            cart
-        })
-        console.log(response);
-        let {status}=response.data;
-        console.log(status);
-        if(status==='success'){
-            history.push('/');
-            toast.success('Your order has been placed successfully', {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-              });
-              
-              const uid = auth.currentUser.uid;
-              const carts = await fs.collection('Cart ' + uid).get();
-              for(var snap of carts.docs){
-                  fs.collection('Cart ' + uid).doc(snap.id).delete();
-              }
-        }
-        else{
-            alert('Something went wrong in checkout');
-        }
-     }
-
-    return(
-        <><Navbar/>
-
-            {cartProducts.length > 0 && (
-                <div className='container-fluid'>
-                    <h1 className='text-center'>Cart</h1>
-                    <div className='products-box'>
-                        <CartProductList cartProducts = {cartProducts}
-                        cartProductIncrease = {cartProductIncrease}
-                        cartProductDecrease= {cartProductDecrease}
-                        />
-                    </div>
-                    <div className='summary-box'>
-                        <h5>Cart Summary</h5>
-                        <br></br>
-                        <div>
-                        Total No of Products: <span>{totalQty}</span>
-                        </div>
-                        <div>
-                        Total Price to Pay: <span>€ {totalPrice}</span>
-                        </div>
-                        <br/>
-                        <StripeCheckout
-                        stripeKey='pk_test_51NzwJ2BnKw4OH10vID5msODJfsZqr3pknRjxxjskmGreSeifsmOx369DZmj1yYrYNAWz11HH3wKJAg3J5yKgEpxh00WE4EOkc0'
-                        token={handleToken}
-                        billingAddress
-                        shippingAddress
-                        name='All Products'
-                        amount={totalPrice * 100}
-                        >
-                        </StripeCheckout>
-                    </div>                                    
-                </div>
-            )}
-
-            {cartProducts.length < 1 && (
-                <div className='container-fluid'>No Products In Cart Yet</div>
-            )}
-            <Footer/>
-        </>
-    )
+      {cartProducts.length < 1 && (
+        <div className='container-fluid'>No Products In Cart Yet</div>
+      )}
+      <Footer/>
+    </>
+  )
 }
