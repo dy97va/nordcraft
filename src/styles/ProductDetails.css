@@ -1,88 +1,46 @@
 .productDetailsBox {
     padding: 30px;
-    padding-top: 115px;
-    padding-left: 82px;
     display: flex;
 }
 
-.view-cards {
-    width: 270px;
-    text-align: center;
-    font-size: 20px;
-    margin-left: 80px;
-    padding: 15px !important;
-}
-
-
 .productDetailsBox .productImage {
-    width: 25%;
-    padding-left: 200px;
+    width: 50%;
 }
 
 .productDetailsBox .productImage img {
-    margin-bottom: 10px;
     width: 100%;
+    border-radius: 25px;
 }
 
 .productDetailsBox .productInfo {
-    position: fixed;
-    top: 115px;
-    right: 10px;
-    width: 70%;
+    width: 50%;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
 }
 
 .productDetailsBox .productTitle {
-    width: 450px;
     padding: 20px;
-    border: 1px solid black;
+    border-radius: 15px;
     box-shadow: 0 0 5px #ccc;
-    font-size: 25px;
+    font-size: 40px;
     font-weight: 900;
 }
 
 .productDetailsBox .productPrice{
-    width: 450px;
     margin-top: 10px;
     padding: 20px;
-    border: 1px solid black;
+    border-radius: 15px;
     box-shadow: 0 0 5px #ccc;
-    font-size: 25px;
-}
-
-.productPrice {
-    color: darkred;
-    font-weight: bold;
-    padding-bottom: 10px;
+    font-size: 40px;
 }
 
 .productDetailsBox .productDescription {
-    width: 450px;
     margin-top: 10px;
     padding: 20px;
-    border: 1px solid black;
+    border-radius: 15px;
     box-shadow: 0 0 5px #ccc;
     font-size: 20px;
     margin-bottom: 20px;
-   
 }
 
-.productCardButton {
-    max-width: 110px;
-    font-size: 15px;
-    text-align: center;
-}
-
-.view-cards-btn {
-    max-width: 450px;
-    font-size: 20px;
-    text-align: center;
-    padding: 15px;
-    border-radius: 0;
-    margin-left: 80px;
-}
-
-.productDetailsBox .productInfo {
-    width: 900px;
-}

@@ -1,11 +1,7 @@
-.empty-cart {
-    padding-top: 115px;
-}
-
 .summary-box{
     width: 300px;
     margin: 30px auto;
-    border: 1px solid black;
+    border-radius: 25px;
     box-shadow: 0 0 5px #ccc;
     display: flex;
     flex-direction: column;
@@ -13,7 +9,7 @@
 }
 .summary-box h5{
     display: flex;  
-    border-bottom: 1px solid  rgb(3, 147, 49) !important;;
+    border-bottom: 1px solid darkcyan;
     text-align: center;
     padding: 0px;
 }
@@ -22,17 +18,3 @@
     display: flex;
     justify-content: space-between;
 }
-
-.pay-btn span {
-    background-image: none !important; 
-}
-
-.pay-btn {
-    background: rgb(3, 147, 49) !important;
-}
-
-.summary-box-price {
-    color: darkred;
-    font-weight: bold;
-}
-
