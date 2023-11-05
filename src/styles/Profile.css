@@ -1,42 +1,4 @@
 .profileInfoBox {
     padding: 30px;
-    padding-top: 115px;
-    display: flex;
     
-}
-
-.profilePicture img {
-    margin-right: 30px;
-    width: 200px;
-}
-
-svg {
-    padding-right: 3px;
-}
-
-.myOrdersBox {
-    margin-top: 48px;
-    font-weight: bold;
-}
-
-.user-btn {
-    padding: 13px;
-    background-color: darkred;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 1.5;
-    letter-spacing: -0.03em;
-    margin-top: 5px;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    border: none;
-}
-
-.cut-line {
-    margin-top: 110px;
-}
-
-.creaters {
-    margin-left: 20px;
 }
