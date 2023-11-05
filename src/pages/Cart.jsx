@@ -17,7 +17,9 @@ const getTotalQty = (cartProducts) => {
 }
 
 const getTotalPrice = (cartProducts) => {
+  console.log('Hello there')
   return cartProducts.reduce((total, cartProduct) => total + cartProduct.TotalProductPrice, 0);
+
 }
 
 const updateCartProduct = async (user, cartProduct) => {

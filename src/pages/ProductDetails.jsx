@@ -11,7 +11,7 @@ export const ProductDetails = (props) => {
   const [addToCartButton, setAddToCartButton] = useState('Add To Cart');
 
   const handleAddToCart = () => {
-    console.log("addded to cart");
+    console.log("addded to cart successfuly");
     addToCart(uid, individualProduct);
     setAddToCartButton('Added To Cart')
   }
