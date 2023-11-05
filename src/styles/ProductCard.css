@@ -1,32 +1,120 @@
+.individual-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px; 
+}
+
 .productCard {
-    width: 350px;
+    /*width: calc(33.33% - 10px);  Calculate the width to fit 3 cards with a 10px gap */
     height:fit-content;
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
     box-shadow: 0 0 5px #ccc;
     margin: 10px;
-    border-radius: 20px;
 }
+
+.product-card-descr {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.product-card-details {
+    flex: 1;
+}
+
+.individual-cart-product {
+    margin-left: 82px;
+    width: 720px;
+}
+
+/* .individual-cart-product .product-card-descr {
+    padding: 10px 20px;
+} */
+
+.individual-cart-product img {
+    width: 100%;
+    height: 47vh;
+}
+
+.individual-cart-product:nth-child(1) {
+    margin-top: 70px;
+}
+
 
 .productCard .productImg {
     width: 100%;
-    border-radius: 25px;
 }
 
 .productCard .productImg img {
     width: 100%;
-    border-radius: 25px;
 }
 
 .productTitle{
     font-weight: 600;
+    font-size: 23px;
+}
+
+.product-card-descr .cart-card-price {
+    padding: 0;
+}
+
+.product-card-descr .cart-product-def {
+    padding-bottom: 15px;
+}
+
+.productPrice {
+    font-weight: 600;
+    font-size: 23px;
+}
+
+.product-card-descr .cart-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+
+}
+
+.product-card-details{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.productCardright {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.cart-card-right .quantityBox {
+    display: flex;
+    align-items: center;
+}
+
+.productCard .productCardButton {
+    margin-left: 10px;
+    margin-bottom: 15px;
 }
 
 .productCardButton{
+    font-weight: bold;
     padding: 10px;
-    background-color: darkred;
-    color: white;
-    border-radius: 10px;
+    background-color: transparent;
+    color: #09b11f;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     cursor: pointer;
-    box-shadow: 0 0 5px #ccc;
+    border: 1px solid #09b11f;
     justify-content: center;
+}
+
+.productCardright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

@@ -17,13 +17,13 @@ export const Footer = () => {
         <hr />
         <div className="footerBox">
             <div className="contactInfoBox">
-                <div>Contact us</div>
+                <div className="footer-title">Contact us</div>
                 <div><a href=""><Icon icon={instagram} size={20}></Icon> instagram</a></div>
                 <div><a href=""><Icon icon={mail} size={20}></Icon> e-mail</a></div>
                 <div><a href=""><Icon icon={phone} size={20}></Icon> call </a></div>
             </div>
             <div className="navigationBox">
-                <div>Navigation</div>
+                <div className="footer-title">Navigation</div>
                 <div><Link to = '/'><Icon icon={home} size={20}></Icon> Home</Link></div>
                 <div><Link to = 'profile'><Icon icon={user} size={20}></Icon> Profile</Link></div>
                 <div><Link to = 'cart'><Icon icon={shoppingCart} size={20}></Icon> Cart </Link></div>
@@ -31,14 +31,14 @@ export const Footer = () => {
                 <div><Link to = 'faq'><Icon icon={info} size={20}></Icon> FAQ</Link></div>
             </div>
             <div className="aboutUsBox">
-                <div>About US</div>
+                <div className="footer-title">About US</div>
                 <p>  Nord Craft: Your gateway to Finnish craftsmanship.
                      Discover exquisite handcrafted treasures that blend tradition with innovation,
                      in knitwear and leather goods. Elevate your lifestyle with timeless Nordic designs</p>
             </div>
         </div>
-        <hr />
-        <div>
+        <hr className="cut-line" />
+        <div className="creaters">
             created by Iroda And Valentin 
         </div>
         </>
