@@ -5,11 +5,7 @@ import { minus } from 'react-icons-kit/feather/minus';
 import { auth, fs } from '../config/Config';
 import '../styles/CartProductCard.css';
 
-export const IndividualCartProduct = ({
-  cartProduct,
-  cartProductIncrease,
-  cartProductDecrease,
-}) => {
+export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartProductDecrease }) => {
   const handleCartProductIncrease = () => {
     cartProductIncrease(cartProduct);
   };
@@ -36,22 +32,37 @@ export const IndividualCartProduct = ({
   return (
     <div className='productCard'>
       <div className='productImg'>
-        <img src={cartProduct.images[0]} alt='product-img' />
+        <img
+          src={cartProduct.images[0]}
+          alt='product-img'
+        />
       </div>
       <div className='productTitle'>{cartProduct.title}</div>
       <div className='productPrice'>€ {cartProduct.price}</div>
       <span>Quantity</span>
       <div className='quantityBox'>
-        <div className='buttonMinus' onClick={handleCartProductDecrease}>
-          <Icon icon={minus} size={20} />
+        <div
+          className='buttonMinus'
+          onClick={handleCartProductDecrease}>
+          <Icon
+            icon={minus}
+            size={20}
+          />
         </div>
         <div>{cartProduct.qty}</div>
-        <div className='buttonPlus' onClick={handleCartProductIncrease}>
-          <Icon icon={plus} size={20} />
+        <div
+          className='buttonPlus'
+          onClick={handleCartProductIncrease}>
+          <Icon
+            icon={plus}
+            size={20}
+          />
         </div>
       </div>
       <div className='producText'>€ {cartProduct.TotalProductPrice}</div>
-      <div className='productButton' onClick={handleDeleteProduct}>
+      <div
+        className='productButton'
+        onClick={handleDeleteProduct}>
         DELETE
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './DropoutMenu.css';
+import '../styles/DropoutMenu.css';
 
 export const DropoutMenu = () => {
   return (
