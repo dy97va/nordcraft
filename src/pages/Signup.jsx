@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth, fs } from '../config/Config';
 
 export const Signup = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [fullName, setFullname] = useState('');
   const [email, setEmail] = useState('');
@@ -28,16 +28,14 @@ export const Signup = () => {
             Password: password,
           })
           .then(() => {
-            setSuccessMsg(
-              'Signup Successfull. You will now automatically get redirected to Login'
-            );
+            setSuccessMsg('Signup Successfull. You will now automatically get redirected to Login');
             setFullname('');
             setEmail('');
             setPassword('');
             setErrorMsg('');
             setTimeout(() => {
               setSuccessMsg('');
-              history.push('/login');
+              navigate('/login');
             }, 3000);
           })
           .catch((error) => setErrorMsg(error.message));
@@ -59,7 +57,10 @@ export const Signup = () => {
           <br></br>
         </>
       )}
-      <form className='form-group' autoComplete='off' onSubmit={handleSignup}>
+      <form
+        className='form-group'
+        autoComplete='off'
+        onSubmit={handleSignup}>
         <label>Full Name</label>
         <input
           type='text'
@@ -87,12 +88,16 @@ export const Signup = () => {
         <div className='btn-box'>
           <span>
             Already have an account Login
-            <Link to='login' className='link'>
+            <Link
+              to='login'
+              className='link'>
               {' '}
               Here
             </Link>
           </span>
-          <button type='submit' className='btn btn-success btn-md'>
+          <button
+            type='submit'
+            className='btn btn-success btn-md'>
             SIGN UP
           </button>
         </div>

@@ -4,7 +4,7 @@ import { fs, auth } from '../config/Config';
 import { CartProductList } from '../components/CartProductList';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import '../styles/Cart.css';
 import { Footer } from '../components/Footer';
@@ -14,6 +14,7 @@ toast.configure();
 
 export const Cart = () => {
   const [cartProducts, setCartProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -35,8 +36,7 @@ export const Cart = () => {
     return cartProduct.qty;
   });
 
-  const reducerOfQty = (accumulator, currentValue) =>
-    accumulator + currentValue;
+  const reducerOfQty = (accumulator, currentValue) => accumulator + currentValue;
 
   const totalQty = qty.reduce(reducerOfQty, 0);
 
@@ -44,8 +44,7 @@ export const Cart = () => {
     return cartProduct.TotalProductPrice;
   });
 
-  const reducerOfPrice = (accumulator, currentValue) =>
-    accumulator + currentValue;
+  const reducerOfPrice = (accumulator, currentValue) => accumulator + currentValue;
 
   const totalPrice = price.reduce(reducerOfPrice, 0);
 
@@ -89,7 +88,6 @@ export const Cart = () => {
     });
   };
 
-  const history = useHistory();
   const handleToken = async (token) => {
     const cart = { name: 'All Products', totalPrice };
     const response = await axios.post('http://localhost:8080/checkout', {
@@ -100,7 +98,7 @@ export const Cart = () => {
     let { status } = response.data;
     console.log(status);
     if (status === 'success') {
-      history.push('/');
+      navigate('/');
       toast.success('Your order has been placed successfully', {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 5000,
@@ -126,7 +124,6 @@ export const Cart = () => {
   return (
     <>
       <Navbar />
-
       {cartProducts.length > 0 && (
         <div className='container-fluid'>
           <h1 className='text-center'>Cart</h1>
@@ -158,9 +155,7 @@ export const Cart = () => {
         </div>
       )}
 
-      {cartProducts.length < 1 && (
-        <div className='container-fluid'>No Products In Cart Yet</div>
-      )}
+      {cartProducts.length < 1 && <div className='container-fluid'>No Products In Cart Yet</div>}
       <Footer />
     </>
   );
