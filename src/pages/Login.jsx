@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../config/Config';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export const Login = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,13 +18,15 @@ export const Login = () => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        setSuccessMsg('Login Successfull. You will now automatically get redirected to Home page');
+        setSuccessMsg(
+          'Login Successfull. You will now automatically get redirected to Home page'
+        );
         setEmail('');
         setPassword('');
         setErrorMsg('');
         setTimeout(() => {
           setSuccessMsg('');
-          navigate('/');
+          history.push('/');
         }, 3000);
       })
       .catch((error) => setErrorMsg(error.message));
@@ -42,10 +44,7 @@ export const Login = () => {
           <br></br>
         </>
       )}
-      <form
-        className='form-group'
-        autoComplete='off'
-        onSubmit={handleLogin}>
+      <form className='form-group' autoComplete='off' onSubmit={handleLogin}>
         <label>Email</label>
         <input
           type='email'
@@ -65,16 +64,12 @@ export const Login = () => {
         <div className='btn-box'>
           <span>
             Don't have an account SignUp
-            <Link
-              to='signup'
-              className='link'>
+            <Link to='signup' className='link'>
               {' '}
               Here
             </Link>
           </span>
-          <button
-            type='submit'
-            className='btn btn-success btn-md'>
+          <button type='submit' className='btn btn-success btn-md'>
             LOGIN
           </button>
         </div>
