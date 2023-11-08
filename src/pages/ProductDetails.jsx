@@ -1,34 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import '../styles/ProductDetails.css'
 import { GetUserUid } from '../services/AuthServices'
 import { addToCart } from '../services/ProductServices'
-import { useParams, useLocation } from 'react-router-dom'
-import { fs } from '../config/Config'
 
 export const ProductDetails = (props) => {
-	const { individualProduct } = props.location || {}
-	console.log(props.location)
-	const productID = useParams()
-	console.log(productID)
-	const location = useLocation()
-	console.log(location)
+	const { individualProduct } = props.location.state || {}
 	const uid = GetUserUid()
 	const [addToCartButton, setAddToCartButton] = useState('Add To Cart')
-
-	const [productData, setProductData] = useState(null)
-	useEffect(() => {
-		const productRef = db.collection('products').doc(productID)
-
-		productRef.get().then((doc) => {
-			if (doc.exists) {
-				setProductData(doc.data())
-			} else {
-				// Handle the case when the product doesn't exist in Firestore
-			}
-		})
-	}, [productID])
 
 	const handleAddToCart = () => {
 		console.log('addded to cart successfuly')
