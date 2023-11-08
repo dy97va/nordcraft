@@ -16,6 +16,7 @@
     "react-icons-kit": "^2.0.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
+    "react-simple-image-viewer": "^1.2.2",
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^8.2.0",
     "stripe": "^13.9.0",
