@@ -40,24 +40,27 @@ export const Profile = (props) => {
         <>
           <div className='profileInfoBox'>
             <div className='profilePicture'>
-              <img src={emptyUser} alt={auth.currentUser.ProfilePic} />
+              <img src={emptyUser} alt={auth.currentUser.ProfilePic} className='profileImage' />
             </div>
-            <div className='userName'>
-              <Icon icon={usericon}></Icon>
-              {user}
-            </div>
-            <div className='email'>
-              <Icon icon={mail}></Icon>
-              {emailToDisplay}
-            </div>
-            <div className='phoneNumber'>
-              <Icon icon={phone}></Icon>+358 46 5798609
-            </div>
+            <div className="profileDescr">
+              <div className='userName'>
+                <Icon icon={usericon}></Icon>
+                {user}
+              </div>
+              <div className='email'>
+                <Icon icon={mail}></Icon>
+                {emailToDisplay}
+              </div>
+              <div className='phoneNumber'>
+                <Icon icon={phone}></Icon>+358 46 5798609
+              </div>
+              <div className='myOrdersBox'>My orders No orders yet</div>
+            <div className='navbarButton' onClick={handleLogout}>
+              LOGOUT
           </div>
-          <div className='myOrdersBox'>My orders No orders yet</div>
-          <div className='navbarButton' onClick={handleLogout}>
-            LOGOUT
-          </div>
+            </div>
+            </div>
+            
         </>
       )}
       <Footer />

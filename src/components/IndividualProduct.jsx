@@ -11,7 +11,7 @@ export const IndividualProduct = ({ individualProduct, addToCart }) => {
   };
 
   return (
-    <div className='productCard'>
+    <div className='productCard individualCards'>
       <Link
         to={{
           pathname: `/product/${individualProduct.ID}`,
@@ -22,10 +22,12 @@ export const IndividualProduct = ({ individualProduct, addToCart }) => {
           <img src={individualProduct.images[0]} alt='product-img' />
         </div>
         <div className='productTitle'>{individualProduct.title}</div>
-        <div className='productPrice'> € {individualProduct.price}</div>
       </Link>
-      <div className='productCardButton' onClick={handleAddToCart}>
-        {addToCartButton}
+      <div className="productCardRight">
+        <div className='productPrice'> € {individualProduct.price}</div>
+        <div className='productCardButton' onClick={handleAddToCart}>
+          {addToCartButton}
+        </div>
       </div>
     </div>
   );

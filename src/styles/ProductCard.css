@@ -1,32 +1,73 @@
+:root {
+    --link-color: darkred;
+    --price-color: darkred;
+    --btns-color: darkred;
+    --text-color: black;
+    --card-btn: rgb(8, 182, 34);
+}
+
 .productCard {
     width: 350px;
     height:fit-content;
-    padding: 10px;
-    box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #afafaf;
     margin: 10px;
-    border-radius: 20px;
 }
 
 .productCard .productImg {
     width: 100%;
-    border-radius: 25px;
 }
 
 .productCard .productImg img {
     width: 100%;
-    border-radius: 25px;
+}
+
+.productCard .productCardRight {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
 }
 
 .productTitle{
     font-weight: 600;
+    font-size: 23px;
+}
+
+.individualCards .productTitle {
+    padding-bottom: 10px;
+}
+
+.productTitle, .productCardRight {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.individualCards .productPrice {
+    padding-bottom: 10px;
+}
+
+.productPrice {
+    font-weight: bold;
+    font-size: 23px;
+    color: var(--price-color);
+}
+
+.individualCards .productCardButton {
+    margin-bottom: 25px;
 }
 
 .productCardButton{
+    text-align: center;
     padding: 10px;
-    background-color: darkred;
-    color: white;
-    border-radius: 10px;
+    background-color: transparent;
+    color: var(--card-btn);
+    border: 1px solid var(--card-btn);
     cursor: pointer;
     box-shadow: 0 0 5px #ccc;
     justify-content: center;
+    font-weight: bold;
 }
+
+.individualCards .productCardButton {
+    width: 115px;
+}
+
