@@ -1,78 +1,80 @@
 :root {
-    --link-color: darkred;
-    --price-color: darkred;
-    --btns-color: darkred;
-    --text-color: black;
-    --card-btn: rgb(8, 182, 34);
+	--link-color: darkred;
+	--price-color: darkred;
+	--btns-color: darkred;
+	--text-color: black;
+	--card-btn: rgb(8, 182, 34);
 }
 
 .productCard {
-    width: 350px;
-    height:fit-content;
-    box-shadow: 0 0 5px #afafaf;
-    margin: 10px;
+	width: 350px;
+	height: fit-content;
+	box-shadow: 0 0 5px #afafaf;
+	margin: 30px;
+	border-radius: 10px;
 }
 
 .productCard .productImg {
-    width: 100%;
-
+	width: 100%;
 }
 
 .productCard .productImg img {
-    width: 100%;
-    height: 350px;
-    width: 100%;
-    object-fit: cover;
-    
+	width: 100%;
+	height: 350px;
+	width: 100%;
+	object-fit: cover;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 .productCard .productCardRight {
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
 }
 
-.productTitle{
-    font-weight: 600;
-    font-size: 23px;
+.productTitle {
+	font-weight: 600;
+	font-size: 23px;
 }
 
 .individualCards .productTitle {
-    padding-bottom: 10px;
+	padding-bottom: 10px;
 }
 
-.productTitle, .productCardRight {
-    padding-left: 15px;
-    padding-right: 15px;
+.productTitle,
+.productCardRight {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .individualCards .productPrice {
-    padding-bottom: 10px;
+	padding-bottom: 10px;
 }
 
 .productPrice {
-    font-weight: bold;
-    font-size: 23px;
-    color: var(--price-color);
+	font-weight: bold;
+	font-size: 23px;
+	color: var(--price-color);
 }
 
 .individualCards .productCardButton {
-    margin-bottom: 25px;
+	margin-bottom: 25px;
 }
 
-.productCardButton{
-    text-align: center;
-    padding: 10px;
-    background-color: transparent;
-    color: var(--card-btn);
-    border: 1px solid var(--card-btn);
-    cursor: pointer;
-    box-shadow: 0 0 5px #ccc;
-    justify-content: center;
-    font-weight: bold;
+.productCardButton {
+	text-align: center;
+	padding: 10px;
+	background-color: transparent;
+	color: var(--card-btn);
+	border: 1px solid var(--card-btn);
+	cursor: pointer;
+	box-shadow: 0 0 5px #ccc;
+	justify-content: center;
+	font-weight: bold;
+	border-radius: 5px;
 }
 
 .individualCards .productCardButton {
-    width: 115px;
+	width: 115px;
 }
-
