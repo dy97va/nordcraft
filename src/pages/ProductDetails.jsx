@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import '../styles/ProductDetails.css'
 import { GetUserUid } from '../services/AuthServices'
 import { addToCart } from '../services/ProductServices'
+import ImageViewer from 'react-simple-image-viewer'
 
 export const ProductDetails = (props) => {
 	const { individualProduct } = props.location.state || {}
 	const uid = GetUserUid()
 	const [addToCartButton, setAddToCartButton] = useState('Add To Cart')
+
+	const [currentImage, setCurrentImage] = useState(0)
+	const [isViewerOpen, setIsViewerOpen] = useState(false)
 
 	const handleAddToCart = () => {
 		console.log('addded to cart successfuly')
@@ -16,6 +20,15 @@ export const ProductDetails = (props) => {
 		setAddToCartButton('Added To Cart')
 	}
 
+	const openImageViewer = useCallback((index) => {
+		setCurrentImage(index)
+		setIsViewerOpen(true)
+	}, [])
+
+	const closeImageViewer = () => {
+		setCurrentImage(0)
+		setIsViewerOpen(false)
+	}
 	return (
 		<div>
 			<Navbar />
@@ -25,9 +38,19 @@ export const ProductDetails = (props) => {
 				<div className='productDetailsBox'>
 					<div className='productImage'>
 						{individualProduct.images.map((image, index) => (
-							<img key={index} src={image} alt={`Product Image ${index}`} />
+							<img key={index} src={image} alt={`Product Image ${index}`} onClick={() => openImageViewer(index)} />
 						))}
+						{isViewerOpen && (
+							<ImageViewer
+								src={individualProduct.images}
+								currentIndex={currentImage}
+								disableScroll={false}
+								closeOnClickOutside={true}
+								onClose={closeImageViewer}
+							/>
+						)}
 					</div>
+
 					<div className='productInfo'>
 						<div className='productTitle'>{individualProduct.title}</div>
 						<div className='productPrice'> Price: € {individualProduct.price}</div>
