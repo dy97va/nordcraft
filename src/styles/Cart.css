@@ -1,3 +1,11 @@
+:root {
+    --link-color: darkred;
+    --price-color: darkred;
+    --btns-color: darkred;
+    --text-color: black;
+    --card-btn: rgb(8, 182, 34);
+  }
+
 .summary-box{
     width: 300px;
     margin: 30px auto;
@@ -17,4 +25,16 @@
 .summary-box div{
     display: flex;
     justify-content: space-between;
+}
+
+.summary-box br {
+    color: var(--card-btn) !important;
+}
+
+.summary-box span {
+    color: var(--price-color);
+}
+
+.summary-box .StripeCheckout {
+    background-color: var(--btns-color) !important;
 }

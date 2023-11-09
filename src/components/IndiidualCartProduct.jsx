@@ -30,40 +30,42 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
   };
 
   return (
-    <div className='productCard'>
+    <div className='individualCartCard'>
       <div className='productImg'>
         <img
           src={cartProduct.images[0]}
           alt='product-img'
         />
       </div>
-      <div className='productTitle'>{cartProduct.title}</div>
-      <div className='productPrice'>€ {cartProduct.price}</div>
-      <span>Quantity</span>
-      <div className='quantityBox'>
-        <div
-          className='buttonMinus'
-          onClick={handleCartProductDecrease}>
-          <Icon
-            icon={minus}
-            size={20}
-          />
+      <div className="cartCardDescr">
+        <div className='productTitle'>{cartProduct.title}</div>
+        <div className='productPrice'>€ {cartProduct.price}</div>
+        <span>Quantity</span>
+        <div className='quantityBox'>
+          <div
+            className='buttonMinus'
+            onClick={handleCartProductDecrease}>
+            <Icon
+              icon={minus}
+              size={20}
+            />
+          </div>
+          <div>{cartProduct.qty}</div>
+          <div
+            className='buttonPlus'
+            onClick={handleCartProductIncrease}>
+            <Icon
+              icon={plus}
+              size={20}
+            />
+          </div>
         </div>
-        <div>{cartProduct.qty}</div>
+        <div className='producText'>€ {cartProduct.TotalProductPrice}</div>
         <div
-          className='buttonPlus'
-          onClick={handleCartProductIncrease}>
-          <Icon
-            icon={plus}
-            size={20}
-          />
+          className='productButton'
+          onClick={handleDeleteProduct}>
+          DELETE
         </div>
-      </div>
-      <div className='producText'>€ {cartProduct.TotalProductPrice}</div>
-      <div
-        className='productButton'
-        onClick={handleDeleteProduct}>
-        DELETE
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ export const Products = (props) => {
     if (uid !== null) {
       addToCart(uid, product);
     } else {
-      console.log('logn to add items to cart');
+      props.history.push('/login');
     }
   };
 
@@ -32,14 +32,13 @@ export const Products = (props) => {
         <div className='container-fluid'>
           <h1 className='text-center'>Products</h1>
           <div className='productsBox'>
-            <ProductList
-              products={products}
-              addToCart={handleAddToCart}
-            />
+            <ProductList products={products} addToCart={handleAddToCart} />
           </div>
         </div>
       )}
-      {products.length < 1 && <div className='container-fluid'>Please wait....</div>}
+      {products.length < 1 && (
+        <div className='container-fluid'>Please wait....</div>
+      )}
       <Footer />
     </>
   );

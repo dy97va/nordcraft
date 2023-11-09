@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { auth } from '../config/Config';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { GetCurrentUser } from '../services/AuthServices';
 import { Icon } from 'react-icons-kit';
 import { mail } from 'react-icons-kit/ikons/mail';
@@ -16,12 +16,12 @@ const usericon = user;
 
 export const Profile = (props) => {
   const user = GetCurrentUser();
-  const navigate = useNavigate();
+  const history = useHistory();
   const emailToDisplay = auth.currentUser.email;
 
   const handleLogout = () => {
     auth.signOut().then(() => {
-      navigate('/login');
+      history.push('/login');
     });
   };
 
@@ -40,24 +40,27 @@ export const Profile = (props) => {
         <>
           <div className='profileInfoBox'>
             <div className='profilePicture'>
-              <img src={emptyUser} alt={auth.currentUser.ProfilePic} />
+              <img src={emptyUser} alt={auth.currentUser.ProfilePic} className='profileImage' />
             </div>
-            <div className='userName'>
-              <Icon icon={usericon}></Icon>
-              {user}
-            </div>
-            <div className='email'>
-              <Icon icon={mail}></Icon>
-              {emailToDisplay}
-            </div>
-            <div className='phoneNumber'>
-              <Icon icon={phone}></Icon>+358 46 5798609
-            </div>
+            <div className="profileDescr">
+              <div className='userName'>
+                <Icon icon={usericon}></Icon>
+                {user}
+              </div>
+              <div className='email'>
+                <Icon icon={mail}></Icon>
+                {emailToDisplay}
+              </div>
+              <div className='phoneNumber'>
+                <Icon icon={phone}></Icon>+358 46 5798609
+              </div>
+              <div className='myOrdersBox'>My orders No orders yet</div>
+            <div className='navbarButton' onClick={handleLogout}>
+              LOGOUT
           </div>
-          <div className='myOrdersBox'>My orders No orders yet</div>
-          <div className='navbarButton' onClick={handleLogout}>
-            LOGOUT
-          </div>
+            </div>
+            </div>
+            
         </>
       )}
       <Footer />

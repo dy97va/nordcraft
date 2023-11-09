@@ -1,5 +1,15 @@
+:root {
+    --link-color: darkred;
+    --price-color: darkred;
+    --btns-color: darkred;
+    --text-color: black;
+    --card-btn: rgb(8, 182, 34);
+}
+
 .productDetailsBox {
-    padding: 30px;
+    padding-top: 40px;
+    padding-left: 90px;
+    padding-right: 90px;
     display: flex;
 }
 
@@ -9,37 +19,39 @@
 
 .productDetailsBox .productImage img {
     width: 100%;
-    border-radius: 25px;
 }
 
+
+
 .productDetailsBox .productInfo {
-    width: 50%;
-    margin-left: 20px;
+    width: 45%;
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
 }
 
 .productDetailsBox .productTitle {
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 5px #ccc;
-    font-size: 40px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 5px #afafaf;
+    font-size: 25px;
     font-weight: 900;
+    text-align: center;
 }
 
 .productDetailsBox .productPrice{
     margin-top: 10px;
+    margin-bottom: 8px;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 5px #ccc;
-    font-size: 40px;
+    box-shadow: 0 0 5px #afafaf;
+    font-size: 25px;
+    text-align: center;
 }
 
 .productDetailsBox .productDescription {
     margin-top: 10px;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #afafaf;
     font-size: 20px;
     margin-bottom: 20px;
 }

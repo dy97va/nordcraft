@@ -1,4 +1,39 @@
+:root {
+    --link-color: darkred;
+    --price-color: darkred;
+    --btns-color: darkred;
+    --text-color: black;
+    --card-btn: rgb(8, 182, 34);
+}
+
 .profileInfoBox {
     padding: 30px;
-    
+    display: flex;
+}
+
+
+.profileInfoBox .profilepicture {
+    width: 50%;
+}
+
+.profileImage {
+    width: 150px;
+    padding-right: 30px;
+}
+
+.productInfoBox .profileDescr {
+    margin-left: 50px;
+    float: right;
+    box-sizing: border-box;
+}
+
+.productInfoBox .navbarButton {
+    padding: 18px;
+    background-color: var(--btns-color);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+    color: white;
 }

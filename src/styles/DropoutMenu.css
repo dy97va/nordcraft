@@ -1,17 +1,17 @@
 .dropdown-menu {
-	background: none;
-	transition: all linear 0.3s;
-	position: fixed;
-	background-color: #f6f6f6;
+  background: none;
+  transition: all linear 0.3s;
+  position: fixed;
+  background-color: #f6f6f6;
 }
 
 ul {
-	list-style: none;
-	padding: unset;
-	margin: unset;
+  list-style: none;
+  padding: unset;
+  margin: unset;
 }
 
 li {
-	padding: 14px;
-	transition: all linear 0.3s;
+  padding: 14px;
+  transition: all linear 0.3s;
 }
