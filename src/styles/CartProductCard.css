@@ -1,38 +1,29 @@
-:root {
-  --link-color: darkred;
-  --price-color: darkred;
-  --btns-color: darkred;
-  --text-color: black;
-  --card-btn: rgb(8, 182, 34);
-}
-
-
 .individualCartCard {
-  display: flex;
-  justify-content: space-between;
-  width: 710px;
-  height: fit-content;
-  box-shadow: 0 0 5px #afafaf;
-  margin: 10px;
+	display: flex;
+	justify-content: space-between;
+	width: 710px;
+	height: fit-content;
+	box-shadow: 0 0 5px #afafaf;
+	margin: 10px;
 }
 
 .individualCartCard .productImg {
-  width: 100%;
+	width: 100%;
 }
 
 .individualCartCard .productImg img {
-  width: 100%;
+	width: 100%;
 }
 
 .individualCartCard .productTitle {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 .individualCartCard .productButton {
-  padding: 10px;
-  background-color: var(--btns-color);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 5px #ccc;
-  justify-content: center;
+	padding: 10px;
+	background-color: var(--btns-color);
+	color: white;
+	cursor: pointer;
+	box-shadow: 0 0 5px #ccc;
+	justify-content: center;
 }

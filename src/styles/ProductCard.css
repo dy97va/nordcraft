@@ -1,9 +1,10 @@
 :root {
 	--link-color: darkred;
-	--price-color: darkred;
+	--price-color: black;
 	--btns-color: darkred;
 	--text-color: black;
-	--card-btn: rgb(8, 182, 34);
+	/* --card-btn: rgb(8, 182, 34); */
+	--card-btn: black;
 }
 
 .productCard {
@@ -12,6 +13,7 @@
 	box-shadow: 0 0 5px #afafaf;
 	margin: 30px;
 	border-radius: 10px;
+	padding-bottom: 20px;
 }
 
 .productCard .productImg {
@@ -29,8 +31,9 @@
 
 .productCard .productCardRight {
 	display: flex;
-	align-items: flex-end;
-	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row;
 }
 
 .productTitle {
@@ -48,19 +51,15 @@
 	padding-right: 15px;
 }
 
-.individualCards .productPrice {
-	padding-bottom: 10px;
-}
-
 .productPrice {
 	font-weight: bold;
-	font-size: 23px;
+	font-size: 19px;
 	color: var(--price-color);
 }
 
-.individualCards .productCardButton {
+/* .individualCards .productCardButton {
 	margin-bottom: 25px;
-}
+} */
 
 .productCardButton {
 	text-align: center;
