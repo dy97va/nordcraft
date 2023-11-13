@@ -15,8 +15,21 @@
 	width: 100%;
 }
 
-.individualCartCard .productTitle {
+.individualCartCard .cartCardTitle {
 	font-weight: 600;
+	font-size: 23px
+}
+
+.individualCartCard .cartCardPrice {
+	font-weight: bold;
+    font-size: 19px;
+    color: var(--price-color);
+}
+
+.cardTotalPrice {
+	font-weight: bold;
+    font-size: 19px;
+    color: var(--price-color);
 }
 
 .individualCartCard .productButton {
