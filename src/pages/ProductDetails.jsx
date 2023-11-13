@@ -36,7 +36,7 @@ export const ProductDetails = (props) => {
 				<div>Loading...</div>
 			) : (
 				<div className='productDetailsBox'>
-					<div className='productImage'>
+					<div className='detailsImage'>
 						{individualProduct.images.map((image, index) => (
 							<img key={index} src={image} alt={`Product Image ${index}`} onClick={() => openImageViewer(index)} />
 						))}
@@ -52,10 +52,10 @@ export const ProductDetails = (props) => {
 					</div>
 
 					<div className='productInfo'>
-						<div className='productTitle'>{individualProduct.title}</div>
-						<div className='productPrice'> Price: € {individualProduct.price}</div>
-						<div className='productDescription'>{individualProduct.description}</div>
-						<div className='productCardButton' onClick={handleAddToCart}>
+						<div className='detailsTitle'>{individualProduct.title}</div>
+						<div className='detailsPrice'> Price: € {individualProduct.price}</div>
+						<div className='detailsDescription'>{individualProduct.description}</div>
+						<div className='detailsCardButton' onClick={handleAddToCart}>
 							{addToCartButton}
 						</div>
 					</div>
