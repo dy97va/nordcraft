@@ -5,7 +5,7 @@ import { CartProductList } from '../components/CartProductList'
 import '../styles/Cart.css'
 import { Footer } from '../components/Footer'
 import 'react-toastify/dist/ReactToastify.css'
-import { CheckoutForm } from '../components/CheckoutForm'
+import { CheckoutBox } from '../components/CheckoutBox'
 
 export const Cart = () => {
 	const [cartProducts, setCartProducts] = useState([])
@@ -43,7 +43,6 @@ export const Cart = () => {
 	const totalPrice = price.reduce(reducerOfPrice, 0)
 
 	let Product
-
 	const cartProductIncrease = (cartProduct) => {
 		Product = cartProduct
 		Product.qty = Product.qty + 1
@@ -95,18 +94,7 @@ export const Cart = () => {
 							cartProductDecrease={cartProductDecrease}
 						/>
 					</div>
-					<div className='summary-box'>
-						<h5>Cart Summary</h5>
-						<br></br>
-						<div>
-							Total No of Products: <span>{totalQty}</span>
-						</div>
-						<div>
-							Total Price to Pay: <span>€ {totalPrice}</span>
-						</div>
-						<br />
-						<CheckoutForm totalPrice={totalPrice} totalQty={totalQty} />
-					</div>
+					<CheckoutBox totalPrice={totalPrice} totalQty={totalQty} />
 				</div>
 			)}
 

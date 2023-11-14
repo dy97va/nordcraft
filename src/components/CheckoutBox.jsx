@@ -4,10 +4,11 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { auth, fs } from '../config/Config'
+import '../styles/CheckoutBox.css'
 
 toast.configure()
 
-export const CheckoutForm = ({ totalPrice, cartProducts }) => {
+export const CheckoutBox = ({ totalPrice, totalQty, cartProducts }) => {
 	const history = useHistory()
 
 	const handleToken = async (token) => {
@@ -44,12 +45,25 @@ export const CheckoutForm = ({ totalPrice, cartProducts }) => {
 	}
 
 	return (
-		<StripeCheckout
-			stripeKey='pk_test_51NzwJ2BnKw4OH10vID5msODJfsZqr3pknRjxxjskmGreSeifsmOx369DZmj1yYrYNAWz11HH3wKJAg3J5yKgEpxh00WE4EOkc0'
-			token={handleToken}
-			billingAddress
-			shippingAddress
-			name='All Products'
-			amount={totalPrice * 100}></StripeCheckout>
+		<>
+			<div className='summary-box'>
+				<h5>Cart Summary</h5>
+				<br />
+				<div>
+					Total No of Products: <span>{totalQty}</span>
+				</div>
+				<div>
+					Total Price to Pay: <span>€ {totalPrice}</span>
+				</div>
+				<br />
+				<StripeCheckout
+					stripeKey='pk_test_51NzwJ2BnKw4OH10vID5msODJfsZqr3pknRjxxjskmGreSeifsmOx369DZmj1yYrYNAWz11HH3wKJAg3J5yKgEpxh00WE4EOkc0'
+					token={handleToken}
+					billingAddress
+					shippingAddress
+					name='All Products'
+					amount={totalPrice * 100}></StripeCheckout>
+			</div>
+		</>
 	)
 }
