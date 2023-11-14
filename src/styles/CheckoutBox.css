@@ -1,7 +1,7 @@
 .summary-box {
 	width: 300px;
 	margin: 30px auto;
-	border-radius: 25px;
+	border-radius: 10px;
 	box-shadow: 0 0 5px #ccc;
 	display: flex;
 	flex-direction: column;

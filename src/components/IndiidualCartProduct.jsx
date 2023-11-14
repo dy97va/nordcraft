@@ -1,72 +1,63 @@
-import React from 'react';
-import Icon from 'react-icons-kit';
-import { plus } from 'react-icons-kit/feather/plus';
-import { minus } from 'react-icons-kit/feather/minus';
-import { auth, fs } from '../config/Config';
-import '../styles/individualCartProduct.css';
+import React from 'react'
+import '../styles/IndividualCartProduct.css'
+import Icon from 'react-icons-kit'
+import { plus } from 'react-icons-kit/feather/plus'
+import { minus } from 'react-icons-kit/feather/minus'
+import { auth, fs } from '../config/Config'
+import { trash2 } from 'react-icons-kit/feather/trash2'
 
 export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartProductDecrease }) => {
-  const handleCartProductIncrease = () => {
-    cartProductIncrease(cartProduct);
-  };
+	const handleCartProductIncrease = () => {
+		cartProductIncrease(cartProduct)
+	}
 
-  const handleCartProductDecrease = () => {
-    cartProductDecrease(cartProduct);
-  };
+	const handleCartProductDecrease = () => {
+		cartProductDecrease(cartProduct)
+	}
 
-  const handleDeleteProduct = () => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        fs.collection('Cart ' + user.uid)
-          .doc(cartProduct.ID)
-          .delete()
-          .then(() => {
-            console.log('delete successful');
-          });
-      } else {
-        console.log('delete unsuccesful, login first');
-      }
-    });
-  };
+	const handleDeleteProduct = () => {
+		auth.onAuthStateChanged((user) => {
+			if (user) {
+				fs.collection('Cart ' + user.uid)
+					.doc(cartProduct.ID)
+					.delete()
+					.then(() => {
+						console.log('delete successful')
+					})
+			} else {
+				console.log('delete unsuccesful, login first')
+			}
+		})
+	}
 
-  return (
-    <div className='individualCartCard'>
-      <div className='productImg'>
-        <img
-          src={cartProduct.images[0]}
-          alt='product-img'
-        />
-      </div>
-      <div className="cartCardDescr">
-        <div className='cartCardTitle'>{cartProduct.title}</div>
-        <div className='cartCardPrice'>€ {cartProduct.price}</div>
-        <span>Quantity</span>
-        <div className='quantityBox'>
-          <div
-            className='buttonMinus'
-            onClick={handleCartProductDecrease}>
-            <Icon
-              icon={minus}
-              size={20}
-            />
-          </div>
-          <div>{cartProduct.qty}</div>
-          <div
-            className='buttonPlus'
-            onClick={handleCartProductIncrease}>
-            <Icon
-              icon={plus}
-              size={20}
-            />
-          </div>
-        </div>
-        <div className='cardTotalPrice'>€ {cartProduct.TotalProductPrice}</div>
-        <div
-          className='productButton'
-          onClick={handleDeleteProduct}>
-          DELETE
-        </div>
-      </div>
-    </div>
-  );
-};
+	return (
+		<div className='catrProductCard'>
+			<div className='cartProductImg'>
+				<img src={cartProduct.images[0]} alt='product-img' />
+			</div>
+			<div className='cartProductInfoBox'>
+				<div className='cartProductInfoRow1'>
+					<div className='cartProductTitle'>{cartProduct.title}</div>
+					<div className='cartDeleteButton' onClick={handleDeleteProduct}>
+						<Icon icon={trash2} size={30} />
+					</div>
+				</div>
+				<div className='cartProductInfoRow2'>
+					<div className='cartProductPrice'>Price: € {cartProduct.price}</div>
+					<div className='quantityBox'>
+						<div className='cartProductQantityController'>
+							<div className='minusButton' onClick={handleCartProductDecrease}>
+								{/* <Icon icon={minus} size={20} /> */} -
+							</div>
+							<div>{cartProduct.qty}</div>
+							<div className='plusButton' onClick={handleCartProductIncrease}>
+								{/* <Icon icon={plus} size={20} /> */} +
+							</div>
+						</div>
+						<div className='cartProductTotalPrice'> Total: € {cartProduct.TotalProductPrice}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	)
+}

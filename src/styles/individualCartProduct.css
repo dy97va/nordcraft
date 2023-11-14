@@ -1,42 +1,85 @@
-.individualCartCard {
+.catrProductCard {
+	display: flex;
+	width: 50%;
+	height: 155px;
+	margin: 25px;
+	box-shadow: 0 0 5px #afafaf;
+	border-radius: 10px;
+}
+
+.cartProductImg {
+	height: 100%;
+	width: 25%;
+}
+
+.cartProductImg img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+.cartProductInfoBox {
+	height: 100%;
+	width: 75%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cartProductInfoRow1 {
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	width: 710px;
-	height: fit-content;
-	box-shadow: 0 0 5px #afafaf;
-	margin: 10px;
 }
 
-.individualCartCard .productImg {
-	width: 100%;
-}
-
-.individualCartCard .productImg img {
-	width: 100%;
-}
-
-.individualCartCard .cartCardTitle {
-	font-weight: 600;
-	font-size: 23px
-}
-
-.individualCartCard .cartCardPrice {
+.cartProductTitle {
+	padding: 20px;
+	font-size: 23px;
 	font-weight: bold;
-    font-size: 19px;
-    color: var(--price-color);
 }
 
-.cardTotalPrice {
-	font-weight: bold;
-    font-size: 19px;
-    color: var(--price-color);
-}
-
-.individualCartCard .productButton {
-	padding: 10px;
-	background-color: var(--btns-color);
-	color: white;
+.cartDeleteButton {
+	padding: 20px;
 	cursor: pointer;
-	box-shadow: 0 0 5px #ccc;
-	justify-content: center;
+}
+.cartDeleteButton svg {
+	stroke: salmon;
+}
+
+.cartProductInfoRow2 {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.cartProductPrice {
+	padding: 20px;
+	font-size: 18px;
+}
+
+.quantityBox {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	width: 30%;
+}
+
+.cartProductQantityController {
+	display: flex;
+	font-size: 20px;
+}
+
+.minusButton {
+	cursor: pointer;
+	padding-right: 5px;
+}
+.plusButton {
+	cursor: pointer;
+	padding-left: 5px;
+}
+
+.cartProductTotalPrice {
+	font-size: 20px;
 }
