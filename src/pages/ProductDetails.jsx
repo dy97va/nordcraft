@@ -68,13 +68,15 @@ export const ProductDetails = () => {
 						)}
 					</div>
 
-					<div className='productInfo'>
+					<div className='productDetailsInfo'>
 						<div className='detailsTitle'>{individualProduct.title}</div>
-						<div className='detailsPrice'> Price: € {individualProduct.price}</div>
-						<div className='detailsDescription'>{individualProduct.description}</div>
-						<div className='detailsCardButton' onClick={handleAddToCart}>
-							{addToCartButton}
+						<div className='priceplusaddtocart'>
+							<div className='detailsPrice'> Price: € {individualProduct.price}</div>
+							<div className='detailsCardButton' onClick={handleAddToCart}>
+								{addToCartButton}
+							</div>
 						</div>
+						<div className='detailsDescription'>{individualProduct.description}</div>
 					</div>
 				</div>
 			)}
