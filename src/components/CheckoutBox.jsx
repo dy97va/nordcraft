@@ -1,7 +1,7 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { auth, fs } from '../config/Config'
 import '../styles/CheckoutBox.css'
@@ -9,7 +9,7 @@ import '../styles/CheckoutBox.css'
 toast.configure()
 
 export const CheckoutBox = ({ totalPrice, totalQty, cartProducts }) => {
-	const history = useHistory()
+	const navigate = useNavigate()
 
 	const handleToken = async (token) => {
 		const cart = { name: 'All Products', totalPrice }
@@ -21,7 +21,7 @@ export const CheckoutBox = ({ totalPrice, totalQty, cartProducts }) => {
 		let { status } = response.data
 
 		if (status === 'success') {
-			history.push('/')
+			navigate('/')
 			toast.success('Your order has been placed successfully', {
 				position: toast.POSITION.TOP_RIGHT,
 				autoClose: 5000,

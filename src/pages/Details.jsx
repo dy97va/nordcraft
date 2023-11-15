@@ -6,18 +6,19 @@ import { GetUserUid } from '../services/AuthServices'
 import { addToCart } from '../services/ProductServices'
 import ImageViewer from 'react-simple-image-viewer'
 import { getProduct } from '../services/ProductServices'
+import { useParams } from 'react-router-dom'
 
 export const Details = (props, { productID }) => {
-	const { individualProduct } = props.location.state || {}
+	// const { individualProduct } = props.location.state || {}
 	const uid = GetUserUid()
-	console.log('hello world')
-	console.log(individualProduct.ID)
 	const [product, setProduct] = useState(null)
+
+	const { id } = useParams()
 
 	useEffect(() => {
 		const fetchProduct = async () => {
 			try {
-				const productData = await getProduct(individualProduct.ID)
+				const productData = await getProduct(id)
 				setProduct(productData)
 			} catch (error) {
 				console.error('Error fetching product:', error)
@@ -33,7 +34,7 @@ export const Details = (props, { productID }) => {
 	return (
 		<div>
 			<Navbar />
-			<div>{individualProduct.title}</div>
+			{/* <div>{individualProduct.title}</div> */}
 			<div>{product.description}</div>
 			<Footer />
 		</div>

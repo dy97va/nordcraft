@@ -1,18 +1,34 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { useParams } from 'react-router-dom'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import '../styles/ProductDetails.css'
 import { GetUserUid } from '../services/AuthServices'
 import { addToCart } from '../services/ProductServices'
 import ImageViewer from 'react-simple-image-viewer'
+import { getProduct } from '../services/ProductServices'
 
-export const ProductDetails = (props) => {
-	const { individualProduct } = props.location.state || {}
+export const ProductDetails = () => {
 	const uid = GetUserUid()
 	const [addToCartButton, setAddToCartButton] = useState('Add To Cart')
-
 	const [currentImage, setCurrentImage] = useState(0)
 	const [isViewerOpen, setIsViewerOpen] = useState(false)
+
+	const { productId } = useParams()
+	const [individualProduct, setIndividualProduct] = useState(null)
+
+	useEffect(() => {
+		const fetchProduct = async () => {
+			try {
+				const productData = await getProduct(productId)
+				setIndividualProduct(productData)
+			} catch (error) {
+				console.error('Error fetching product:', error)
+			}
+		}
+
+		fetchProduct()
+	}, [productId])
 
 	const handleAddToCart = () => {
 		console.log('addded to cart successfuly')
@@ -29,6 +45,7 @@ export const ProductDetails = (props) => {
 		setCurrentImage(0)
 		setIsViewerOpen(false)
 	}
+
 	return (
 		<div>
 			<Navbar />

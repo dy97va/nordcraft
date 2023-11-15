@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { auth } from '../config/Config'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { GetCurrentUser } from '../services/AuthServices'
 import { Icon } from 'react-icons-kit'
 import { mail } from 'react-icons-kit/ikons/mail'
@@ -16,12 +16,12 @@ const usericon = user
 
 export const Profile = (props) => {
 	const user = GetCurrentUser()
-	const history = useHistory()
+	const navigate = useNavigate()
 	const emailToDisplay = auth.currentUser.email
 
 	const handleLogout = () => {
 		auth.signOut().then(() => {
-			history.push('/login')
+			navigate('/login')
 		})
 	}
 

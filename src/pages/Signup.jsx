@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth, fs } from '../config/Config';
 
 export const Signup = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [fullName, setFullname] = useState('');
   const [email, setEmail] = useState('');
@@ -37,7 +37,7 @@ export const Signup = () => {
             setErrorMsg('');
             setTimeout(() => {
               setSuccessMsg('');
-              history.push('/login');
+              navigate('/login');
             }, 3000);
           })
           .catch((error) => setErrorMsg(error.message));
