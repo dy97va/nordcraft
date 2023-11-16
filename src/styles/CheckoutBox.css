@@ -22,11 +22,3 @@
 .summary-box br {
 	color: var(--card-btn);
 }
-
-.summary-box span {
-	color: var(--price-color);
-}
-
-.summary-box .StripeCheckout {
-	background-color: var(--btns-color);
-}

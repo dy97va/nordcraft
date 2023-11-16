@@ -17,7 +17,7 @@ const usericon = user
 export const Profile = (props) => {
 	const user = GetCurrentUser()
 	const navigate = useNavigate()
-	const emailToDisplay = auth.currentUser.email
+	const emailToDisplay = auth.currentUser ? auth.currentUser.email : ''
 
 	const handleLogout = () => {
 		auth.signOut().then(() => {

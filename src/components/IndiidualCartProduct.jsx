@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/IndividualCartProduct.css'
 import Icon from 'react-icons-kit'
 import { plus } from 'react-icons-kit/feather/plus'
@@ -33,8 +34,11 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
 	return (
 		<div className='catrProductCard'>
 			<div className='cartProductImg'>
-				<img src={cartProduct.images[0]} alt='product-img' />
+				<Link to={{ pathname: `/product/${cartProduct.ID}` }}>
+					<img src={cartProduct.images[0]} alt='product-img' />{' '}
+				</Link>
 			</div>
+
 			<div className='cartProductInfoBox'>
 				<div className='cartProductInfoRow1'>
 					<div className='cartProductTitle'>{cartProduct.title}</div>
