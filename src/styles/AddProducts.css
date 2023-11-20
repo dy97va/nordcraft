@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group {
+    
+}
+
+.container label {
+    padding-right: 10px;
+}
+
+.form-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 19px;
+}
+
+.form-left {
+    width: 49%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#productDescription {
+    height: 115px;
+}
+
+.form-right {
+    width: 49%;
+}
+
+.form-control {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px 18px;
+    margin-bottom: 19px;
+    width: 251px;
+    height: 60px;
+}
+

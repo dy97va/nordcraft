@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { storage, fs } from '../config/Config';
+import '../styles/AddProducts.css'
 
 export const AddProducts = () => {
   const [product, setProduct] = useState({
@@ -106,45 +107,64 @@ export const AddProducts = () => {
         autoComplete='off'
         className='form-group'
         onSubmit={handleAddProducts}>
-        <label>Product Title</label>
-        <input
-          type='text'
-          className='form-control'
-          required
-          onChange={(e) => setProduct({ ...product, title: e.target.value })}
-          value={product.title}
-        />
+        <div className="form-top">
+          <div className="form-left">
+          <div className='form-item'>
+              {/* <label htmlFor='productTitle'>Product Title</label> */}
+              <input
+                type='text'
+                id='productTitle'
+                placeholder='Product title'
+                className='form-control'
+                required
+                onChange={(e) => setProduct({ ...product, title: e.target.value })}
+                value={product.title}
+              />
+            </div>
+          <br />
+          <div className='form-item'>
+            {/* <label htmlFor='productPrice'>Product Price</label> */}
+            <input
+              id='productPrice'
+              placeholder='Product price'
+              type='number'
+              className='form-control'
+              required
+              onChange={(e) => setProduct({ ...product, price: e.target.value })}
+              value={product.price}
+            />
+          </div>
+          <br />
+
+          <div className='form-item form-descr-item'>
+            {/* <label htmlFor='productDescription'>Product Description</label> */}
+            <textarea
+              id='productDescription'
+              placeholder='Product description'
+              type='text'
+              className='form-control'
+              required
+              onChange={(e) => setProduct({ ...product, description: e.target.value })}
+              value={product.description}
+            />
+          </div>
+          </div>
+       
         <br />
-        <label>Product Description</label>
-        <textarea
-          type='text'
-          className='form-control'
-          required
-          onChange={(e) =>
-            setProduct({ ...product, description: e.target.value })
-          }
-          value={product.description}
-        />
-        <br />
-        <label>Product Price</label>
-        <input
-          type='number'
-          className='form-control'
-          required
-          onChange={(e) => setProduct({ ...product, price: e.target.value })}
-          value={product.price}
-        />
-        <br />
-        <label>Upload Product Images</label>
-        <input
-          type='file'
-          id='file'
-          className='form-control'
-          multiple
-          accept='image/*'
-          required
-          onChange={handleProductImg}
-        />
+        {/* <label>Upload Product Images</label> */}
+        <div className="form-right">
+          <input
+            type='file'
+            id='file'
+            placeholder='Add files'
+            className='form-control'
+            multiple
+            accept='image/*'
+            required
+            onChange={handleProductImg}
+          />
+        </div>
+        </div>
         <br />
         {product.images &&
           product.images.map((image, index) => (
