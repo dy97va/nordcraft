@@ -22,3 +22,8 @@
 .summary-box br {
 	color: var(--card-btn);
 }
+
+button {
+	width: 50%;
+	cursor: pointer;
+}
