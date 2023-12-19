@@ -28,14 +28,14 @@ export const getProduct = async (productID) => {
 	}
 }
 
-let Product
 export const addToCart = (uid, product) => {
-	Product = product
-	Product['qty'] = 1
-	Product['TotalProductPrice'] = Product.qty * Product.price
+	const updatedProduct = { ...product }
+	updatedProduct['qty'] = 1
+	updatedProduct['TotalProductPrice'] = updatedProduct.qty * updatedProduct.price
+
 	fs.collection('Cart ' + uid)
 		.doc(product.ID)
-		.set(Product)
+		.set(updatedProduct)
 		.then(() => {
 			console.log('successfully added to cart')
 		})

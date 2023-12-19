@@ -85,16 +85,20 @@ export const Cart = () => {
 		<>
 			<Navbar />
 			{cartProducts.length > 0 && (
-				<div className='container-fluid'>
-					<h1 className='text-center'>Cart</h1>
-					<div className='products-box'>
-						<CartProductList
-							cartProducts={cartProducts}
-							cartProductIncrease={cartProductIncrease}
-							cartProductDecrease={cartProductDecrease}
-						/>
+				<div className='cart'>
+					<h1 className='cartTitle'>Cart</h1>
+					<div className='cartBox'>
+						<div className='cartProductsBox'>
+							<CartProductList
+								cartProducts={cartProducts}
+								cartProductIncrease={cartProductIncrease}
+								cartProductDecrease={cartProductDecrease}
+							/>
+						</div>
+						<div className='checkoutBox'>
+							<CheckoutBox totalPrice={totalPrice} totalQty={totalQty} />
+						</div>
 					</div>
-					<CheckoutBox totalPrice={totalPrice} totalQty={totalQty} />
 				</div>
 			)}
 

@@ -31,7 +31,7 @@ export const ProductDetails = () => {
 	}, [productId])
 
 	const handleAddToCart = () => {
-		console.log('addded to cart successfuly')
+		individualProduct.ID = productId
 		addToCart(uid, individualProduct)
 		setAddToCartButton('Added To Cart')
 	}
@@ -61,7 +61,7 @@ export const ProductDetails = () => {
 							<ImageViewer
 								src={individualProduct.images}
 								currentIndex={currentImage}
-								disableScroll={false}
+								disableScroll={true}
 								closeOnClickOutside={true}
 								onClose={closeImageViewer}
 							/>

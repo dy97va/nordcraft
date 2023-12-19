@@ -1,0 +1,15 @@
+.cartBox {
+	display: flex;
+	justify-content: space-around;
+	padding: 20px;
+}
+
+.cartProductsBox {
+	width: 50%;
+}
+
+.checkoutBox {
+	height: fit-content;
+	position: sticky;
+	top: 0;
+}
