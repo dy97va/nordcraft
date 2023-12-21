@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { storage, fs } from '../config/Config'
+import "../styles/AddProducts.css"
 
 export const AddProducts = () => {
 	const [product, setProduct] = useState({
@@ -101,69 +102,73 @@ export const AddProducts = () => {
 			<hr />
 			{successMessage && <div className='success-msg'>{successMessage}</div>}
 			<form autoComplete='off' className='form-group' onSubmit={handleAddProducts}>
-				<label>Product Title</label>
-				<input
-					type='text'
-					className='form-control'
-					required
-					onChange={(e) => setProduct({ ...product, title: e.target.value })}
-					value={product.title}
-				/>
-				<br />
-				<label>Product Description</label>
-				<textarea
-					type='text'
-					className='form-control'
-					required
-					onChange={(e) => setProduct({ ...product, description: e.target.value })}
-					value={product.description}
-				/>
-				<br />
-				<label>Product Price</label>
-				<input
-					type='number'
-					className='form-control'
-					required
-					onChange={(e) => setProduct({ ...product, price: e.target.value })}
-					value={product.price}
-				/>
-				<br />
-				<label>Upload Product Images</label>
-				<input
-					type='file'
-					id='file'
-					className='form-control'
-					multiple
-					accept='image/*'
-					required
-					onChange={handleProductImg}
-				/>
-				<br />
-				{product.images &&
-					product.images.map((image, index) => (
-						//<div key={index}>
-						<div key={index}>
-							<img src={URL.createObjectURL(image)} alt='image preview' />
-							<button type='button' onClick={() => removeImage(index)}>
-								Delete
-							</button>
-						</div>
-					))}
-
-				{imageError.length > 0 && (
-					<div className='error-msg'>
-						{imageError.map((error, index) => (
-							<p key={index}>{error}</p>
+				<div className="left_form">
+					<input
+					    placeholder='Product title'
+						type='text'
+						className='form-control'
+						required
+						onChange={(e) => setProduct({ ...product, title: e.target.value })}
+						value={product.title}
+					/>
+					<br />
+					<input
+					    placeholder='Product price'
+						type='number'
+						className='form-control'
+						required
+						onChange={(e) => setProduct({ ...product, price: e.target.value })}
+						value={product.price}
+					/>
+					<br />
+					<input
+					    placeholder='Upload image'
+						type='file'
+						id='file'
+						className='form-control'
+						multiple
+						accept='image/*'
+						required
+						onChange={handleProductImg}
+					/>
+					<br />
+					{product.images &&
+						product.images.map((image, index) => (
+							//<div key={index}>
+							<div key={index}>
+								<img src={URL.createObjectURL(image)} alt='image preview' className='uploaded_img' />
+								<button type='button' onClick={() => removeImage(index)} className="form_delete_btn" >
+									Delete
+								</button>
+							</div>
 						))}
-					</div>
-				)}
-				<br />
-				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+
+					{imageError.length > 0 && (
+						<div className='error-msg'>
+							{imageError.map((error, index) => (
+								<p key={index}>{error}</p>
+							))}
+						</div>
+					)}
+				</div>
+
+				<div className="right_form">
+					<textarea
+					    placeholder='Product description'
+						type='text'
+						className='form-control form_right-side'
+						required
+						onChange={(e) => setProduct({ ...product, description: e.target.value })}
+						value={product.description}
+					/>
+					
+				</div>
+			</form>
+			<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 					<button type='submit' className='submitButton'>
 						SUBMIT
 					</button>
-				</div>
-			</form>
+			</div>
 			{uploadError && <div className='error-msg'>{uploadError}</div>}
 		</div>
 	)

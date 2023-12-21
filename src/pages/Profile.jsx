@@ -54,12 +54,12 @@ export const Profile = (props) => {
 							<div className='phoneNumber'>
 								<Icon icon={phone}></Icon>+358 46 5798609
 							</div>
-							<div className='myOrdersBox'>My orders No orders yet</div>
 							<div className='navbarButton' onClick={handleLogout}>
 								LOGOUT
 							</div>
 						</div>
 					</div>
+					<div className='myOrdersBox'>Ooops no orders yet...</div>
 				</div>
 			)}
 			<Footer />

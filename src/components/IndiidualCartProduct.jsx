@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/IndividualCartProduct.css'
+import '../styles/individualCartProduct.css'
 import Icon from 'react-icons-kit'
 import { plus } from 'react-icons-kit/feather/plus'
 import { minus } from 'react-icons-kit/feather/minus'

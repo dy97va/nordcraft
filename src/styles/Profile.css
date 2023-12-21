@@ -1,14 +1,20 @@
 .profileInfo {
 	min-height: 70vh;
+	padding-top: 20px;
+	padding-left: 35px;
 }
 
 .profileInfoBox {
-	padding: 30px;
 	display: flex;
+	padding-bottom: 10px;
 }
 
 .profileInfoBox .profilepicture {
 	width: 50%;
+}
+
+.profileInfoBox i {
+	padding-right: 5px;
 }
 
 .profileImage {
@@ -22,13 +28,19 @@
 	box-sizing: border-box;
 }
 
-.productInfoBox .navbarButton {
-	padding: 18px;
-	background-color: var(--btns-color);
+.profileInfoBox .phoneNumber {
+	padding-bottom: 29px;
+}
+
+.profileInfoBox .navbarButton {
+	padding: 10px;
+	background-color: darkred;
 	font-weight: 500;
-	font-size: 24px;
+	font-size: 16px;
 	line-height: 1.5;
 	letter-spacing: -0.03em;
+	text-align: center;
 	text-decoration: none;
 	color: white;
 }
+
