@@ -16,22 +16,24 @@ app.get('/', (req, res) => {
 
 app.post('/create-checkout-session', async (req, res) => {
 	const { cart } = req.body
+	const lineItems = cart.cartProducts.map((product) => ({
+		price_data: {
+			currency: 'eur',
+			product_data: {
+				name: product.title,
+			},
+			unit_amount: Math.round(product.price * 100),
+		},
+		quantity: product.qty,
+	}))
 
 	const session = await stripe.checkout.sessions.create({
 		payment_method_types: ['card'],
-		line_items: [
-			{
-				price_data: {
-					currency: 'eur',
-					product_data: {
-						name: 'All Products',
-					},
-					unit_amount: Math.round(cart.totalPrice * 100),
-				},
-				quantity: 1,
-			},
-		],
+		line_items: lineItems,
 		mode: 'payment',
+		shipping_address_collection: {
+			allowed_countries: ['FI'],
+		},
 		success_url: 'http://localhost:3000/cart',
 		cancel_url: 'http://localhost:3000/cart',
 	})

@@ -96,7 +96,7 @@ export const Cart = () => {
 							/>
 						</div>
 						<div className='checkoutBox'>
-							<CheckoutBox totalPrice={totalPrice} totalQty={totalQty} />
+							<CheckoutBox totalPrice={totalPrice} totalQty={totalQty} cartProducts={cartProducts} />
 						</div>
 					</div>
 				</div>

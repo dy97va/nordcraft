@@ -5,7 +5,7 @@ import { loadStripe } from '@stripe/stripe-js'
 
 toast.configure()
 
-const CheckoutForm = ({ totalPrice }) => {
+const CheckoutForm = ({ totalPrice, cartProducts }) => {
 	const handleCheckout = async () => {
 		console.log('Handling checkout...')
 		try {
@@ -14,7 +14,7 @@ const CheckoutForm = ({ totalPrice }) => {
 			)
 
 			const response = await axios.post('http://localhost:8080/create-checkout-session', {
-				cart: { totalPrice },
+				cart: { totalPrice, cartProducts },
 			})
 
 			const { sessionId } = response.data
