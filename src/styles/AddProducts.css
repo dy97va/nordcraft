@@ -6,8 +6,18 @@
 }
 
 .form-group {
-    
+    display: flex;
+    align-items: stretch;
 }
+
+.left_form, .right_form {
+    flex: 1;
+}
+
+.left_form {
+    margin-right: 10px;
+}
+
 
 .container label {
     padding-right: 10px;
@@ -19,19 +29,8 @@
     margin-bottom: 19px;
 }
 
-.form-left {
-    width: 49%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-#productDescription {
-    height: 115px;
-}
-
-.form-right {
-    width: 49%;
+.right_form textarea {
+    height: 210px;
 }
 
 .form-control {
@@ -39,8 +38,35 @@
     border-radius: 10px;
     box-sizing: border-box;
     padding: 10px 18px;
-    margin-bottom: 19px;
+    margin-bottom: 15px;
     width: 251px;
     height: 60px;
+}
+
+.submitButton {
+    width: -webkit-fill-available;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: darkred;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    margin-left: 430px;
+    text-decoration: none;
+    color: white;
+    border: none;
+}
+
+
+.form_delete_btn {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    color: darkred;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid darkred;
 }
 
