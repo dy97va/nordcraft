@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar } from '../components/Navbar'
+import { OrderHistory } from '../components/Orders'
 import { Footer } from '../components/Footer'
 import { auth } from '../config/Config'
 import { useNavigate } from 'react-router-dom'
@@ -60,6 +61,7 @@ export const Profile = (props) => {
 						</div>
 					</div>
 					<div className='myOrdersBox'>Ooops no orders yet...</div>
+					<OrderHistory />
 				</div>
 			)}
 			<Footer />

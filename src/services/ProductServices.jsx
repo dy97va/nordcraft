@@ -19,6 +19,24 @@ export const getProducts = async () => {
 	}
 }
 
+export const getOrders = async () => {
+	try {
+		const orderSnapshot = await fs.collection('Orders').get()
+		const ordersArray = []
+
+		orderSnapshot.forEach((doc) => {
+			const data = doc.data()
+			data.ID = doc.id
+			ordersArray.push(data)
+		})
+
+		return ordersArray
+	} catch (error) {
+		console.error('error fetching orders', error)
+		return []
+	}
+}
+
 export const getProduct = async (productID) => {
 	const productSnapshot = await fs.collection('Products').doc(productID).get()
 	if (productSnapshot.exists) {
