@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Navbar } from '../components/Navbar'
 import { fs, auth } from '../config/Config'
+import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer'
+import { CheckoutBox } from '../components/CheckoutBox'
 import { CartProductList } from '../components/CartProductList'
 import '../styles/Cart.css'
-import { Footer } from '../components/Footer'
 import 'react-toastify/dist/ReactToastify.css'
-import { CheckoutBox } from '../components/CheckoutBox'
 
 export const Cart = () => {
 	const [cartProducts, setCartProducts] = useState([])

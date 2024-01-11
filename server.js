@@ -34,10 +34,10 @@ app.post('/create-checkout-session', async (req, res) => {
 		shipping_address_collection: {
 			allowed_countries: ['FI'],
 		},
-		success_url: 'http://localhost:3000/cart',
+		success_url: 'http://localhost:3000/success',
 		cancel_url: 'http://localhost:3000/cart',
 	})
-
+	console.log(session)
 	res.json({ sessionId: session.id })
 })
 

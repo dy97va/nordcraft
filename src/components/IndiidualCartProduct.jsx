@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/individualCartProduct.css'
+import '../styles/IndividualCartProduct.css'
 import Icon from 'react-icons-kit'
-import { plus } from 'react-icons-kit/feather/plus'
-import { minus } from 'react-icons-kit/feather/minus'
 import { auth, fs } from '../config/Config'
 import { trash2 } from 'react-icons-kit/feather/trash2'
 
@@ -51,11 +49,11 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
 					<div className='quantityBox'>
 						<div className='cartProductQantityController'>
 							<div className='minusButton' onClick={handleCartProductDecrease}>
-								{/* <Icon icon={minus} size={20} /> */} -
+								-
 							</div>
 							<div>{cartProduct.qty}</div>
 							<div className='plusButton' onClick={handleCartProductIncrease}>
-								{/* <Icon icon={plus} size={20} /> */} +
+								+
 							</div>
 						</div>
 						<div className='cartProductTotalPrice'> Total: € {cartProduct.TotalProductPrice}</div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { storage, fs } from '../config/Config'
-import "../styles/AddProducts.css"
+import '../styles/AddProducts.css'
 
 export const AddProducts = () => {
 	const [product, setProduct] = useState({
@@ -102,9 +102,9 @@ export const AddProducts = () => {
 			<hr />
 			{successMessage && <div className='success-msg'>{successMessage}</div>}
 			<form autoComplete='off' className='form-group' onSubmit={handleAddProducts}>
-				<div className="left_form">
+				<div className='left_form'>
 					<input
-					    placeholder='Product title'
+						placeholder='Product title'
 						type='text'
 						className='form-control'
 						required
@@ -113,7 +113,7 @@ export const AddProducts = () => {
 					/>
 					<br />
 					<input
-					    placeholder='Product price'
+						placeholder='Product price'
 						type='number'
 						className='form-control'
 						required
@@ -122,7 +122,7 @@ export const AddProducts = () => {
 					/>
 					<br />
 					<input
-					    placeholder='Upload image'
+						placeholder='Upload image'
 						type='file'
 						id='file'
 						className='form-control'
@@ -137,7 +137,7 @@ export const AddProducts = () => {
 							//<div key={index}>
 							<div key={index}>
 								<img src={URL.createObjectURL(image)} alt='image preview' className='uploaded_img' />
-								<button type='button' onClick={() => removeImage(index)} className="form_delete_btn" >
+								<button type='button' onClick={() => removeImage(index)} className='form_delete_btn'>
 									Delete
 								</button>
 							</div>
@@ -152,23 +152,23 @@ export const AddProducts = () => {
 					)}
 				</div>
 
-				<div className="right_form">
+				<div className='right_form'>
 					<textarea
-					    placeholder='Product description'
+						placeholder='Product description'
 						type='text'
 						className='form-control form_right-side'
 						required
 						onChange={(e) => setProduct({ ...product, description: e.target.value })}
 						value={product.description}
 					/>
-					
 				</div>
-			</form>
-			<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 					<button type='submit' className='submitButton'>
 						SUBMIT
 					</button>
-			</div>
+				</div>
+			</form>
+
 			{uploadError && <div className='error-msg'>{uploadError}</div>}
 		</div>
 	)

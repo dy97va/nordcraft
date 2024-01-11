@@ -10,7 +10,7 @@ import { Products } from './pages/Products'
 import { Profile } from './pages/Profile'
 import { CartContextProvider } from './context/CartContext'
 import { ProductDetails } from './pages/ProductDetails'
-import { Details } from './pages/Details'
+import { PaymentSuccess } from './pages/PaymentSuceess'
 
 export const App = () => {
 	return (
@@ -25,6 +25,7 @@ export const App = () => {
 					<Route path='/add-products' element={<AddProducts />} />
 					<Route path='/cart' element={<Cart />} />
 					<Route path='/product/:productId' element={<ProductDetails />} />
+					<Route path='/success' element={<PaymentSuccess />} />
 					<Route component={NotFound} />
 				</Routes>
 			</BrowserRouter>
