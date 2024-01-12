@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { fs, auth } from '../config/Config'
+import { fs, auth } from '../../config/Config'
 
 export const OrderHistory = () => {
 	const [orders, setOrders] = useState([])

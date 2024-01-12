@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { storage, fs } from '../config/Config'
-import '../styles/AddProducts.css'
+import { storage, fs } from '../../config/Config'
+import './AddProducts.css'
 
 export const AddProducts = () => {
 	const [product, setProduct] = useState({

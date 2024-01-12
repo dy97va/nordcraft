@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/IndividualCartProduct.css'
+import './IndividualCartProduct.css'
 import Icon from 'react-icons-kit'
-import { auth, fs } from '../config/Config'
+import { auth, fs } from '../../config/Config'
 import { trash2 } from 'react-icons-kit/feather/trash2'
 
 export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartProductDecrease }) => {

@@ -9,7 +9,7 @@ import { shoppingCart } from 'react-icons-kit/feather/shoppingCart'
 import { gift } from 'react-icons-kit/feather/gift'
 import { info } from 'react-icons-kit/feather/info'
 import { Link } from 'react-router-dom'
-import '../styles/Footer.css'
+import './Footer.css'
 
 export const Footer = () => {
 	return (

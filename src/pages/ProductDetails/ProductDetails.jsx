@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
-import '../styles/ProductDetails.css'
-import { GetUserUid } from '../services/AuthServices'
-import { addToCart } from '../services/ProductServices'
+import { Navbar } from '../../components/Navbar/Navbar'
+import { Footer } from '../../components/Footer/Footer'
+import { GetUserUid } from '../../services/AuthServices'
+import { addToCart } from '../../services/ProductServices'
 import ImageViewer from 'react-simple-image-viewer'
-import { getProduct } from '../services/ProductServices'
+import { getProduct } from '../../services/ProductServices'
+import './ProductDetails.css'
 
 export const ProductDetails = () => {
 	const uid = GetUserUid()

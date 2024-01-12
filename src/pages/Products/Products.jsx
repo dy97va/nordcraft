@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Navbar } from '../components/Navbar'
-import { ProductList } from '../components/ProductList'
-import { GetUserUid } from '../services/AuthServices'
-import { addToCart, getProducts } from '../services/ProductServices'
-import '../styles/Products.css'
-import { Footer } from '../components/Footer'
+import { Navbar } from '../../components/Navbar/Navbar'
+import { ProductList } from '../../components/Products/ProductList'
+import { GetUserUid } from '../../services/AuthServices'
+import { addToCart, getProducts } from '../../services/ProductServices'
+import './Products.css'
+import { Footer } from '../../components/Footer/Footer'
 
 export const Products = (props) => {
 	const uid = GetUserUid()

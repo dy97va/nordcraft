@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/Logo.svg'
+import logo from '../../assets/Logo.svg'
 import { Icon } from 'react-icons-kit'
 import { shoppingCart } from 'react-icons-kit/feather/shoppingCart'
-import '../styles/Navbar.css'
-import { GetCurrentUser } from '../services/AuthServices'
-import { useCart } from '../context/CartContext'
+import { GetCurrentUser } from '../../services/AuthServices'
+import { useCart } from '../../context/CartContext'
 import { DropoutMenu } from './DropoutMenu'
 import { useState } from 'react'
+import './Navbar.css'
 
 export const Navbar = () => {
 	const totalProducts = useCart()

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { fs, auth } from '../config/Config'
 import { useNavigate } from 'react-router-dom'
-import { Navbar } from '../components/Navbar'
+import { Navbar } from '../components/Navbar/Navbar'
 
 export const PaymentSuccess = () => {
 	const navigate = useNavigate()

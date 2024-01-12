@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { fs, auth } from '../config/Config'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
-import { CheckoutBox } from '../components/CheckoutBox'
-import { CartProductList } from '../components/CartProductList'
-import '../styles/Cart.css'
+import { fs, auth } from '../../config/Config'
+import { Navbar } from '../../components/Navbar/Navbar'
+import { Footer } from '../../components/Footer/Footer'
+import { CheckoutBox } from '../../components/Checkout/CheckoutBox'
+import { CartProductList } from '../../components/CartProducts/CartProductList'
+import './Cart.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 export const Cart = () => {

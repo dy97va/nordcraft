@@ -1,16 +1,16 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home } from './pages/Home'
+import { Home } from './pages/Home/Home'
 import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { NotFound } from './pages/NotFound'
-import { AddProducts } from './pages/AddProducts'
-import { Cart } from './pages/Cart'
-import { Products } from './pages/Products'
-import { Profile } from './pages/Profile'
-import { CartContextProvider } from './context/CartContext'
-import { ProductDetails } from './pages/ProductDetails'
+import { AddProducts } from './pages/AddProducts/AddProducts'
+import { Cart } from './pages/Cart/Cart'
+import { Products } from './pages/Products/Products'
+import { Profile } from './pages/Profile/Profile'
+import { ProductDetails } from './pages/ProductDetails/ProductDetails'
 import { PaymentSuccess } from './pages/PaymentSuceess'
+import { CartContextProvider } from './context/CartContext'
 
 export const App = () => {
 	return (

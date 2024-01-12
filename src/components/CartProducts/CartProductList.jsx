@@ -1,5 +1,5 @@
 import React from 'react'
-import { IndividualCartProduct } from './IndiidualCartProduct'
+import { IndividualCartProduct } from './IndividualCartProduct'
 
 export const CartProductList = ({ cartProducts, cartProductIncrease, cartProductDecrease }) => {
 	return cartProducts.map((cartProduct) => (

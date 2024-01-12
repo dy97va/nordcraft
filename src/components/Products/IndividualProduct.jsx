@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import '../styles/ProductCard.css'
 import { Link } from 'react-router-dom'
+import './ProductCard.css'
 
 export const IndividualProduct = ({ individualProduct, addToCart }) => {
 	const [addToCartButton, setAddToCartButton] = useState('Add To Cart')
