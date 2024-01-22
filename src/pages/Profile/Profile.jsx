@@ -40,27 +40,29 @@ export const Profile = (props) => {
 			{user && (
 				<div className='profileInfo'>
 					<div className='profileInfoBox'>
-						<div className='profilePicture'>
-							<img src={emptyUser} alt={auth.currentUser.ProfilePic} className='profileImage' />
+						<div className='profileInformationandpicture'>
+							<div className='profilePicture'>
+								<img src={emptyUser} alt={auth.currentUser.ProfilePic} className='profileImage' />
+							</div>
+							<div className='profileDescr'>
+								<div className='userName'>
+									<Icon icon={usericon}></Icon>
+									{user}
+								</div>
+								<div className='email'>
+									<Icon icon={mail}></Icon>
+									{emailToDisplay}
+								</div>
+								<div className='phoneNumber'>
+									<Icon icon={phone}></Icon>+358 46 5798609
+								</div>
+							</div>
 						</div>
-						<div className='profileDescr'>
-							<div className='userName'>
-								<Icon icon={usericon}></Icon>
-								{user}
-							</div>
-							<div className='email'>
-								<Icon icon={mail}></Icon>
-								{emailToDisplay}
-							</div>
-							<div className='phoneNumber'>
-								<Icon icon={phone}></Icon>+358 46 5798609
-							</div>
-							<div className='navbarButton' onClick={handleLogout}>
-								LOGOUT
-							</div>
+						<div className='navbarButton' onClick={handleLogout}>
+							LOGOUT
 						</div>
 					</div>
-					<div className='myOrdersBox'>Ooops no orders yet...</div>
+					{/* <div className='myOrdersBox'>Ooops no orders yet...</div> */}
 					<OrderHistory />
 				</div>
 			)}

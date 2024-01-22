@@ -73,7 +73,7 @@ export const Footer = () => {
 				</div>
 			</div>
 			<hr className='cut-line' />
-			<div className='creators'>created by Iroda And Valentin</div>
+			{/* <div className='creators'>created by Iroda And Valentin</div> */}
 		</>
 	)
 }

@@ -30,7 +30,6 @@ export const Products = (props) => {
 			<br></br>
 			{products.length > 0 && (
 				<div className='container-fluid'>
-					<h1 className='text-center'>All Products</h1>
 					<div className='productsBox'>
 						<ProductList products={products} addToCart={handleAddToCart} />
 					</div>

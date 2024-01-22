@@ -1,14 +1,9 @@
 .productsBox {
 	display: flex;
-	/* justify-content: space-around; */
 	justify-content: flex-start;
 	align-items: flex-start;
 	flex-direction: row;
 	flex: 3;
 	flex-wrap: wrap;
 	padding: 50px;
-}
-
-.text-center {
-	padding-left: 100px;
 }

@@ -6,7 +6,17 @@
 
 .profileInfoBox {
 	display: flex;
+	width: 90%;
 	padding-bottom: 10px;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	/* background-color: red; */
+}
+.profileInformationandpicture {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .profileInfoBox .profilepicture {
@@ -18,8 +28,10 @@
 }
 
 .profileImage {
-	width: 150px;
-	padding-right: 30px;
+	width: 100px;
+	/* padding-right: 30px; */
+	border-radius: 50px;
+	margin-right: 20px;
 }
 
 .productInfoBox .profileDescr {
@@ -35,12 +47,15 @@
 .profileInfoBox .navbarButton {
 	padding: 10px;
 	background-color: darkred;
+	color: white;
+	border-radius: 10px;
+	width: 100px;
+	height: 30px;
 	font-weight: 500;
 	font-size: 16px;
-	line-height: 1.5;
-	letter-spacing: -0.03em;
 	text-align: center;
 	text-decoration: none;
-	color: white;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 30px;
 }
-

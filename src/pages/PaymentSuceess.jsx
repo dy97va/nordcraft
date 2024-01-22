@@ -8,19 +8,18 @@ export const PaymentSuccess = () => {
 
 	useEffect(() => {
 		const handleSuccessfulPayment = async () => {
-			console.log('hello there')
 			auth.onAuthStateChanged(async (user) => {
 				if (user) {
-					console.log('hello')
 					try {
 						const cartCollectionName = 'Cart ' + user.uid
-						console.log(cartCollectionName)
 
 						// Fetch all documents in the cart collection
 						const cartSnapshot = await fs.collection(cartCollectionName).get()
+						console.log(cartSnapshot)
 
 						if (!cartSnapshot.empty) {
 							const cartDocs = cartSnapshot.docs
+							console.log(cartDocs)
 
 							// Create a new order document
 							const orderId = fs.collection('Orders').doc().id // Generate a new ID for the order

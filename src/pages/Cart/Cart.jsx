@@ -86,7 +86,7 @@ export const Cart = () => {
 			<Navbar />
 			{cartProducts.length > 0 && (
 				<div className='cart'>
-					<h1 className='cartTitle'>Cart</h1>
+					{/* <h1 className='cartTitle'>Cart</h1> */}
 					<div className='cartBox'>
 						<div className='cartProductsBox'>
 							<CartProductList
