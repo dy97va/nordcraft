@@ -50,7 +50,6 @@ export const addToCart = (uid, product) => {
 	const updatedProduct = { ...product }
 	updatedProduct['qty'] = 1
 	updatedProduct['TotalProductPrice'] = updatedProduct.qty * updatedProduct.price
-
 	fs.collection('Cart ' + uid)
 		.doc(product.ID)
 		.set(updatedProduct)

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import { Navbar } from '../../components/Navbar/Navbar'
 import { Footer } from '../../components/Footer/Footer'
 import { GetUserUid } from '../../services/AuthServices'
 import { addToCart } from '../../services/ProductServices'
@@ -48,7 +47,6 @@ export const ProductDetails = () => {
 
 	return (
 		<div>
-			<Navbar />
 			{!individualProduct ? (
 				<div>Loading...</div>
 			) : (

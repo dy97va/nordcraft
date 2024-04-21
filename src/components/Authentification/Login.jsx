@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { auth } from '../config/Config'
+import { auth } from '../../config/Config'
 import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {

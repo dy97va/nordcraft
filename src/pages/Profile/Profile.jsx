@@ -1,5 +1,4 @@
 import React from 'react'
-import { Navbar } from '../../components/Navbar/Navbar'
 import { OrderHistory } from '../../components/OrderHistory/Orders'
 import { Footer } from '../../components/Footer/Footer'
 import { auth } from '../../config/Config'
@@ -7,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 import { GetCurrentUser } from '../../services/AuthServices'
 import { Icon } from 'react-icons-kit'
 import { mail } from 'react-icons-kit/ikons/mail'
-import { phone } from 'react-icons-kit/feather/phone'
 import { user } from 'react-icons-kit/feather/user'
 import { Link } from 'react-router-dom'
 import emptyUser from '../../assets/emptyUSer.png'
@@ -28,7 +26,6 @@ export const Profile = (props) => {
 
 	return (
 		<>
-			<Navbar />
 			{!user && (
 				<>
 					<div>
@@ -46,16 +43,17 @@ export const Profile = (props) => {
 							</div>
 							<div className='profileDescr'>
 								<div className='userName'>
-									<Icon icon={usericon}></Icon>
+									<Icon icon={usericon} />
 									{user}
 								</div>
 								<div className='email'>
-									<Icon icon={mail}></Icon>
+									<Icon icon={mail} />
 									{emailToDisplay}
 								</div>
-								<div className='phoneNumber'>
-									<Icon icon={phone}></Icon>+358 46 5798609
-								</div>
+								{/* <div className='phoneNumber'>
+									<Icon icon={phone} />
+									+358 46 5798609
+								</div> */}
 							</div>
 						</div>
 						<div className='navbarButton' onClick={handleLogout}>

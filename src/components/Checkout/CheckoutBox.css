@@ -8,7 +8,6 @@
 	padding: 30px;
 }
 
-
 .summary-box h5 {
 	display: flex;
 	border-bottom: 1px solid #2ba72b;
@@ -21,17 +20,16 @@
 	justify-content: space-between;
 }
 
-
-button {
+.checkoutButton {
 	padding: 8px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 1.5;
-    letter-spacing: -0.03em;
+	border-radius: 8px;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 1.5;
+	letter-spacing: -0.03em;
 	background-color: transparent;
 	color: #2ba72b;
 	border: 1px solid #2ba72b;
-    text-decoration: none;
+	text-decoration: none;
 	cursor: pointer;
 }

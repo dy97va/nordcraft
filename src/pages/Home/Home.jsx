@@ -1,5 +1,4 @@
 import React from 'react'
-import { Navbar } from '../../components/Navbar/Navbar'
 import { Footer } from '../../components/Footer/Footer'
 import { Link } from 'react-router-dom'
 import './Home.css'
@@ -7,7 +6,6 @@ import './Home.css'
 export const Home = ({ user }) => {
 	return (
 		<>
-			<Navbar />
 			<section className='homePageBody'>
 				<div className='mainText'>
 					<p className='mainTitle'>Quality goods to&nbsp;last a&nbsp;lifetime</p>
@@ -16,8 +14,7 @@ export const Home = ({ user }) => {
 					</p>
 					<div className='exploreButtonWrapper'>
 						<Link to='products' className='exploreButton'>
-							{' '}
-							Explore{' '}
+							Explore
 						</Link>
 					</div>
 				</div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { fs, auth } from '../../config/Config'
-import { Navbar } from '../../components/Navbar/Navbar'
 import { Footer } from '../../components/Footer/Footer'
 import { CheckoutBox } from '../../components/Checkout/CheckoutBox'
 import { CartProductList } from '../../components/CartProducts/CartProductList'
@@ -83,7 +82,6 @@ export const Cart = () => {
 
 	return (
 		<>
-			<Navbar />
 			{cartProducts.length > 0 && (
 				<div className='cart'>
 					{/* <h1 className='cartTitle'>Cart</h1> */}

@@ -65,7 +65,6 @@ export const PaymentSuccess = () => {
 
 	return (
 		<>
-			<Navbar />
 			<div className='container-fluid'>Your payment was successful</div>
 		</>
 	)

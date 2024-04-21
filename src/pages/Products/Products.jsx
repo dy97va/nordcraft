@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Navbar } from '../../components/Navbar/Navbar'
 import { ProductList } from '../../components/Products/ProductList'
 import { GetUserUid } from '../../services/AuthServices'
 import { addToCart, getProducts } from '../../services/ProductServices'
@@ -20,13 +19,12 @@ export const Products = (props) => {
 		if (uid !== null) {
 			addToCart(uid, product)
 		} else {
-			props.history.push('/login')
+			console.log('login required')
 		}
 	}
 
 	return (
 		<>
-			<Navbar />
 			<br></br>
 			{products.length > 0 && (
 				<div className='container-fluid'>
