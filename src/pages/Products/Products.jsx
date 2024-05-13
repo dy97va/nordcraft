@@ -5,7 +5,7 @@ import { addToCart, getProducts } from '../../services/ProductServices'
 import './Products.css'
 import { Footer } from '../../components/Footer/Footer'
 
-export const Products = (props) => {
+export const Products = () => {
 	const uid = GetUserUid()
 	const [products, setProducts] = useState([])
 
@@ -25,15 +25,16 @@ export const Products = (props) => {
 
 	return (
 		<>
-			<br></br>
 			{products.length > 0 && (
-				<div className='container-fluid'>
-					<div className='productsBox'>
-						<ProductList products={products} addToCart={handleAddToCart} />
+				<div className='productContainer'>
+					<div className='productsBoxWrapper'>
+						<div className='productsBox'>
+							<ProductList products={products} addToCart={handleAddToCart} />
+						</div>
 					</div>
 				</div>
 			)}
-			{products.length < 1 && <div className='container-fluid'>Please wait....</div>}
+			{products.length < 1 && <div>Please wait....</div>}
 			<Footer />
 		</>
 	)

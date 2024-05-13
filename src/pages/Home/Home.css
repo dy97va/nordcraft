@@ -17,7 +17,6 @@
 	padding-left: 25px;
 	padding-right: 25px;
 	border-radius: 5px;
-	/* background-color: darkred; */
 	font-weight: 500;
 	font-size: 24px;
 	line-height: 1.5;
@@ -51,4 +50,32 @@
 	font-size: 32px;
 	line-height: calc(48 / 32);
 	letter-spacing: -0.05em;
+}
+
+@media screen and (max-width: 768px) {
+	.mainTitle {
+		font-size: 62px; /* Adjust font-size for smaller screens */
+	}
+
+	.mainDescription {
+		font-size: 28px; /* Adjust font-size for smaller screens */
+	}
+
+	.exploreButton {
+		font-size: 18px; /* Adjust font-size for smaller screens */
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.mainTitle {
+		font-size: 36px; /* Further reduce font-size for smaller screens */
+	}
+
+	.mainDescription {
+		font-size: 20px; /* Further reduce font-size for smaller screens */
+	}
+
+	.exploreButton {
+		font-size: 16px; /* Further reduce font-size for smaller screens */
+	}
 }

@@ -16,16 +16,16 @@ export const ProductDetails = () => {
 	const { productId } = useParams()
 	const [individualProduct, setIndividualProduct] = useState(null)
 
-	useEffect(() => {
-		const fetchProduct = async () => {
-			try {
-				const productData = await getProduct(productId)
-				setIndividualProduct(productData)
-			} catch (error) {
-				console.error('Error fetching product:', error)
-			}
+	const fetchProduct = async () => {
+		try {
+			const productData = await getProduct(productId)
+			setIndividualProduct(productData)
+		} catch (error) {
+			console.error('Error fetching product:', error)
 		}
+	}
 
+	useEffect(() => {
 		fetchProduct()
 	}, [productId])
 

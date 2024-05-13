@@ -83,19 +83,16 @@ export const Cart = () => {
 	return (
 		<>
 			{cartProducts.length > 0 && (
-				<div className='cart'>
-					{/* <h1 className='cartTitle'>Cart</h1> */}
-					<div className='cartBox'>
-						<div className='cartProductsBox'>
-							<CartProductList
-								cartProducts={cartProducts}
-								cartProductIncrease={cartProductIncrease}
-								cartProductDecrease={cartProductDecrease}
-							/>
-						</div>
-						<div className='checkoutBox'>
-							<CheckoutBox totalPrice={totalPrice} totalQty={totalQty} cartProducts={cartProducts} />
-						</div>
+				<div className='cartBox'>
+					<div className='cartProductsBox'>
+						<CartProductList
+							cartProducts={cartProducts}
+							cartProductIncrease={cartProductIncrease}
+							cartProductDecrease={cartProductDecrease}
+						/>
+					</div>
+					<div className='checkoutBox'>
+						<CheckoutBox totalPrice={totalPrice} totalQty={totalQty} cartProducts={cartProducts} />
 					</div>
 				</div>
 			)}

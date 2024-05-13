@@ -24,8 +24,6 @@ export const App = () => {
 					<Route exact path='/' element={<Home />} />
 					<Route path='/profile' element={<Profile />} />
 					<Route exact path='/products' element={<Products />} />
-					<Route path='/signup' element={<Signup />} />
-					<Route path='/login' element={<Login />} />
 					<Route path='/add-products' element={<AddProducts />} />
 					<Route path='/cart' element={<Cart />} />
 					<Route path='/product/:productId' element={<ProductDetails />} />

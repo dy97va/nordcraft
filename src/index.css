@@ -1,65 +1,7 @@
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-*{
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
 }
-/*
-.wrapper{
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.btn-box{
-  display: flex;
-  justify-content: space-between;
-}
-
-@media(max-width: 450px){
-  .btn-box{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.success-msg{
-  width: 100%;
-  padding: 14px;
-  background-color: #dff0d8;
-  color: #468847;
-}
-
-.error-msg{
-  width: 100%;
-  padding: 14px;
-  background-color: #f0d0d3;
-  color: #df786f;
-}
-
-.link{
-  text-decoration: none;
-}
-
-.cart-btn{
-  background-color: #e00a02 !important;
-}
-
-
-.product .quantity-box{
-  width: 100%;  
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  padding: 5px;
-  border: 1px solid #b9b5b5;
-  border-radius: 8px;
-}
-
-.product .quantity-box .action-btns{
-  font-weight: 600;
-  cursor: pointer;
-} */
- 

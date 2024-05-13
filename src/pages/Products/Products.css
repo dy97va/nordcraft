@@ -1,9 +1,7 @@
 .productsBox {
 	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: row;
-	flex: 3;
 	flex-wrap: wrap;
-	padding: 50px;
+	justify-content: flex-start;
+	padding: 5%;
+	gap: 30px;
 }

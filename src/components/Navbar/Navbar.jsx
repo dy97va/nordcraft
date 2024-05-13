@@ -12,6 +12,7 @@ import './Navbar.css'
 export const Navbar = () => {
 	const totalProducts = useCart()
 	const user = GetCurrentUser()
+	console.log(totalProducts)
 
 	const [isDropOutVisible, setDropOutVisible] = useState(false)
 
@@ -48,7 +49,6 @@ export const Navbar = () => {
 							<Link className='navigationlink' to='/products'>
 								Products
 							</Link>
-							{/* {isDropOutVisible && <DropoutMenu />} */}
 						</div>
 					</div>
 
@@ -70,8 +70,8 @@ export const Navbar = () => {
 										<Link className='navigationlink' to='/cart'>
 											Cart
 											<Icon icon={shoppingCart} size={20} />
+											<span className='cart-indicator'>{totalProducts}</span>
 										</Link>
-										<span className='cart-indicator'>{totalProducts}</span>
 									</div>
 								</div>
 							</>

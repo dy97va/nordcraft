@@ -1,28 +1,23 @@
 .summary-box {
 	width: 300px;
 	margin: 30px auto;
-	border-radius: 10px;
+	border-radius: 5px;
 	box-shadow: 0 0 5px #ccc;
 	display: flex;
 	flex-direction: column;
-	padding: 30px;
+	/* padding: 30px; */
 }
 
 .summary-box h5 {
 	display: flex;
 	border-bottom: 1px solid #2ba72b;
 	text-align: center;
-	padding: 0px;
-}
-
-.summary-box div {
-	display: flex;
-	justify-content: space-between;
+	margin: 10px;
 }
 
 .checkoutButton {
-	padding: 8px;
-	border-radius: 8px;
+	padding: 5px;
+	border-radius: 5px;
 	font-weight: 500;
 	font-size: 15px;
 	line-height: 1.5;
@@ -32,4 +27,20 @@
 	border: 1px solid #2ba72b;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+.summaryBody {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.leftSide {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+.rightSide {
+	padding: 20px;
 }

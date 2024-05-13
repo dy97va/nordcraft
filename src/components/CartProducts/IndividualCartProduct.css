@@ -1,10 +1,11 @@
 .catrProductCard {
 	display: flex;
 	width: 100%;
-	height: 155px;
-	margin: 25px;
+	max-width: 750px;
+	height: clamp(90px, 10vw, 130px);
+	margin-top: 20px;
 	box-shadow: 0 0 5px #afafaf;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .cartProductImg {
@@ -16,13 +17,13 @@
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	border-bottom-left-radius: 10px;
-	border-top-left-radius: 10px;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
 }
 
 .cartProductInfoBox {
 	height: 100%;
-	width: 75%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -32,20 +33,26 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .cartProductTitle {
-	padding: 20px;
-	font-size: 23px;
+	padding: 10px;
+	font-size: clamp(13px, 3vw, 18px);
 	font-weight: bold;
 }
 
 .cartDeleteButton {
-	padding: 20px;
+	/* padding: 20px; */
+	margin-right: 10px;
 	cursor: pointer;
+	height: 30px;
+	width: 30px;
 }
 .cartDeleteButton svg {
 	stroke: salmon;
+	height: 100%;
+	width: 100%;
 }
 
 .cartProductInfoRow2 {
@@ -55,20 +62,19 @@
 }
 
 .cartProductPrice {
-	padding: 20px;
-	font-size: 18px;
+	padding: 10px;
+	font-size: clamp(10px, 3vw, 16px);
 }
 
 .quantityBox {
-	padding: 20px;
 	display: flex;
-	justify-content: space-between;
-	width: 30%;
+	justify-content: space-evenly;
+	padding: 10px;
 }
 
 .cartProductQantityController {
 	display: flex;
-	font-size: 20px;
+	font-size: clamp(10px, 3vw, 16px);
 }
 
 .minusButton {
@@ -81,5 +87,12 @@
 }
 
 .cartProductTotalPrice {
-	font-size: 20px;
+	font-size: clamp(10px, 3vw, 16px);
+}
+
+@media (max-width: 850px) {
+	.catrProductCard {
+		max-width: 750px;
+		height: clamp(90px, 20vw, 130px);
+	}
 }

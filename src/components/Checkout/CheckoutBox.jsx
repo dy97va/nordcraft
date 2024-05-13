@@ -13,17 +13,21 @@ export const CheckoutBox = ({ totalPrice, totalQty, cartProducts }) => {
 		<>
 			<div className='summary-box'>
 				<h5>Cart Summary</h5>
-				<br />
-				<div>
-					Total No of Products: <span>{totalQty}</span>
+				<div className='summaryBody'>
+					<div className='leftSide'>
+						<div>
+							Total Products: <span>{totalQty}</span>
+						</div>
+						<div>
+							Total Price: <span>€ {totalPrice}</span>
+						</div>
+					</div>
+					<div className='rightSide'>
+						<Elements stripe={stripePromise}>
+							<CheckoutForm totalPrice={totalPrice} cartProducts={cartProducts} />
+						</Elements>
+					</div>
 				</div>
-				<div>
-					Total Price to Pay: <span>€ {totalPrice}</span>
-				</div>
-				<br />
-				<Elements stripe={stripePromise}>
-					<CheckoutForm totalPrice={totalPrice} cartProducts={cartProducts} />
-				</Elements>
 			</div>
 		</>
 	)

@@ -2,6 +2,7 @@
 	display: flex;
 	justify-content: space-around;
 	padding: 20px;
+	min-height: 70vh;
 }
 
 .cartProductsBox {
@@ -12,4 +13,20 @@
 	height: fit-content;
 	position: sticky;
 	top: 0;
+}
+
+@media (max-width: 850px) {
+	.cartBox {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.cartProductsBox {
+		width: 100%;
+	}
+
+	.checkoutBox {
+		width: 100%;
+	}
 }

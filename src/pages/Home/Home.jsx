@@ -3,7 +3,7 @@ import { Footer } from '../../components/Footer/Footer'
 import { Link } from 'react-router-dom'
 import './Home.css'
 
-export const Home = ({ user }) => {
+export const Home = () => {
 	return (
 		<>
 			<section className='homePageBody'>

@@ -37,7 +37,7 @@ const CheckoutForm = ({ totalPrice, cartProducts }) => {
 	return (
 		<div>
 			<button className='checkoutButton' onClick={handleCheckout}>
-				Proceed to Checkout
+				Checkout
 			</button>
 		</div>
 	)

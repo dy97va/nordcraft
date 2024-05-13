@@ -1,82 +1,56 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { auth } from '../../config/Config'
-import { useNavigate } from 'react-router-dom'
+import './Login.css'
 
-export const Login = () => {
-	const navigate = useNavigate()
-
+export const Login = ({ onClose, showSignupForm }) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	const [errorMsg, setErrorMsg] = useState('')
-	const [successMsg, setSuccessMsg] = useState('')
-
-	const handleLogin = (e) => {
-		e.preventDefault()
-		auth
-			.signInWithEmailAndPassword(email, password)
-			.then(() => {
-				setSuccessMsg('Login Successfull. You will now automatically get redirected to Home page')
-				setEmail('')
-				setPassword('')
-				setErrorMsg('')
-				setTimeout(() => {
-					setSuccessMsg('')
-					navigate('/')
-				}, 3000)
+	const handleLogin = async (event) => {
+		event.preventDefault()
+		try {
+			await auth.signInWithEmailAndPassword(email, password).then(() => {
+				onClose()
 			})
-			.catch((error) => setErrorMsg(error.message))
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	return (
-		<div className='container'>
-			<br></br>
-			<br></br>
-			<h1>Login</h1>
-			<hr></hr>
-			{successMsg && (
-				<>
-					<div className='success-msg'>{successMsg}</div>
-					<br></br>
-				</>
-			)}
-			<form className='form-group' autoComplete='off' onSubmit={handleLogin}>
-				<label>Email</label>
-				<input
-					type='email'
-					className='form-control'
-					required
-					onChange={(e) => setEmail(e.target.value)}
-					value={email}></input>
-				<br></br>
-				<label>Password</label>
-				<input
-					type='password'
-					className='form-control'
-					required
-					onChange={(e) => setPassword(e.target.value)}
-					value={password}></input>
-				<br></br>
-				<div className='btn-box'>
-					<span>
-						Don't have an account SignUp
-						<Link to='signup' className='link'>
-							{' '}
-							Here
-						</Link>
-					</span>
-					<button type='submit' className='btn btn-success btn-md'>
-						LOGIN
+		<div className='modalBackdrop'>
+			<div className='loginForm'>
+				<div className='closeButtonContainer'>
+					<button className='loginFormButton' onClick={onClose}>
+						close
 					</button>
 				</div>
-			</form>
-			{errorMsg && (
-				<>
-					<br></br>
-					<div className='error-msg'>{errorMsg}</div>
-				</>
-			)}
+				<h1>login</h1>
+				<form className='form' autoComplete='off' onSubmit={handleLogin}>
+					<label>Email</label>
+					<input
+						type='email'
+						className='form-control'
+						required
+						value={email}
+						onChange={(event) => setEmail(event.target.value)}></input>
+					<label>Password</label>
+					<input
+						type='password'
+						className='form-control'
+						required
+						value={password}
+						onChange={(event) => setPassword(event.target.value)}></input>
+					<div className='loginButtonContainer'>
+						<button className='loginFormButton' type='submit'>
+							LOGIN
+						</button>
+					</div>
+				</form>
+				<p>
+					Dont have an account yet? <button onClick={showSignupForm}>SignUp</button>
+				</p>
+			</div>
 		</div>
 	)
 }

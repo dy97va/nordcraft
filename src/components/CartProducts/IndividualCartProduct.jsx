@@ -29,6 +29,8 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
 		})
 	}
 
+	// const iconsize = clamp(24, 2vw, 30)
+
 	return (
 		<div className='catrProductCard'>
 			<div className='cartProductImg'>
@@ -41,7 +43,7 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
 				<div className='cartProductInfoRow1'>
 					<div className='cartProductTitle'>{cartProduct.title}</div>
 					<div className='cartDeleteButton' onClick={handleDeleteProduct}>
-						<Icon icon={trash2} size={30} />
+						<Icon icon={trash2} size={50} />
 					</div>
 				</div>
 				<div className='cartProductInfoRow2'>
